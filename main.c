@@ -21,8 +21,8 @@ void setcolor(int color)
 void cursorview()
 {
     CONSOLE_CURSOR_INFO cursorInfo = { 0, };
-    cursorInfo.dwSize = 1; // Ŀ�� ���� (1 ~ 100)
-    cursorInfo.bVisible = FALSE; // Ŀ�� Visible TRUE(����) FALSE(����)
+    cursorInfo.dwSize = 1; // 커서 굵기 (1 ~ 100)
+    cursorInfo.bVisible = FALSE; // 커서 Visible TRUE(보임) FALSE(숨김)
     SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
 }
 
@@ -37,7 +37,7 @@ int main()
     cursorview();
     setcolor(15);
 
-    int length, money, x, y;
+    int length, money, x, y, random;
 
     int npc[16][16] = {
         0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,
@@ -75,7 +75,7 @@ int main()
         0,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-    }; // ���� ���� ���� 1, ���� ���� 2, ���� 3, ���� ���� 4, ���� ���� ���� 5, ���� 6
+    }; // 가장 연한 갈색 1, 연한 갈색 2, 갈색 3, 진한 갈색 4, 가장 진한 갈색 5, 검정 6
 
     setcolor(3);
     gotoxy(33, 4);
@@ -148,39 +148,39 @@ int main()
     gotoxy(0, 6);
     for (int i = 0; i < 16; i++) {
         for (int j = 0; j < 15; j++) {
-            if (npc[i][j] == 0) // �����
+            if (npc[i][j] == 0) // 빈공간
                 printf("  ");
-            else if (npc[i][j] == 1) { // �ܰ���
+            else if (npc[i][j] == 1) { // 외각선
                 SET_COLOR(FOREGROUND, 255, 255, 255);
-                printf("�Ƣ�");
+                printf("▒▒");
             }
-            else if (npc[i][j] == 2) { // �Ӹ�ī��
+            else if (npc[i][j] == 2) { // 머리카락
                 SET_COLOR(FOREGROUND, 99, 70, 61);
-                printf("�Ƣ�");
+                printf("▒▒");
             }
-            else if (npc[i][j] == 3) { // ��
+            else if (npc[i][j] == 3) { // 눈
                 SET_COLOR(FOREGROUND, 71, 106, 102);
-                printf("�Ƣ�");
+                printf("▒▒");
             }
-            else if (npc[i][j] == 4) { // ��
+            else if (npc[i][j] == 4) { // 볼
                 SET_COLOR(FOREGROUND, 231, 148, 145);
-                printf("�Ƣ�");
+                printf("▒▒");
             }
-            else if (npc[i][j] == 5) { // ����
+            else if (npc[i][j] == 5) { // 상의
                 SET_COLOR(FOREGROUND, 220, 64, 73);
-                printf("�Ƣ�");
+                printf("▒▒");
             }
-            else if (npc[i][j] == 6) { // ����
+            else if (npc[i][j] == 6) { // 바지
                 SET_COLOR(FOREGROUND, 64, 88, 113);
-                printf("�Ƣ�");
+                printf("▒▒");
             }
-            else if (npc[i][j] == 7) { // �Ǻ�
+            else if (npc[i][j] == 7) { // 피부
                 SET_COLOR(FOREGROUND, 245, 217, 185);
-                printf("�Ƣ�");
+                printf("▒▒");
             }
-            else if (npc[i][j] == 8) { // �� ��
+            else if (npc[i][j] == 8) { // 눈 위
                 SET_COLOR(FOREGROUND, 37, 62, 51);
-                printf("�Ƣ�");
+                printf("▒▒");
             }
         }
         printf("\n");
@@ -188,15 +188,15 @@ int main()
     setcolor(15);
 
     gotoxy(32, 11);
-    printf("<--- ������");
+    printf("<--- 낙명현");
 
     gotoxy(0, 23);
-    printf("�ѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤ�");
+    printf("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
 
     Sleep(1500);
 
     gotoxy(0, 26);
-    char* talk = ("������ : ��������Ӥ���ĤĤ������R�����줾\n         �� �� ���� ��� �����⸦ ��Ƽ� ���ÿ��� �ǰ����ž�!!!");
+    char* talk = ("낙명현 : 헤ㅔ히히ㅣㅎ헤ㅔㅔㅎ히ㅣ힣히ㅣ헤ㅎ\n         난 이 세상에 모든 물고기를 잡아서 낚시왕이 되고말거야!!!");
     length = strlen(talk);
     for (int i = 0; i < length; i++) {
         printf("%c", talk[i]);
@@ -223,30 +223,51 @@ int main()
     setcolor(15);
 
     gotoxy(0, 23);
-    printf("�ѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤ�");
+    printf("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
 
     while (1) {
-
-        gotoxy(26,26);
-        printf("�����ϱ�");
+        gotoxy(26, 26);
+        printf("낚시하기");
         gotoxy(45, 26);
-        printf("������ �Ǹ�");
+        printf("물고기 판매");
         gotoxy(66, 26);
-        printf("��� ����");
+        printf("장비 구매");
         gotoxy(86, 26);
-        printf("�̴ϰ���");
+        printf("미니게임");
 
         gotoxy(29, 27);
         printf("^");
 
         x = 29;
 
-        while (1)
-        {
+        while (1) {
             if (_kbhit()) {
                 int control = _getch();
 
-                if (control == ARROW) {
+                // 엔터키 입력 확인
+                if (control == ENTER) {
+                    // 엔터키 처리
+                    if (x == 29) {
+                        random = rand() % 100;
+                        if (random <= 65) {
+                            system("cls");
+                            printf("일반\n");
+                        }
+                        else if (random > 65 && random <= 87) {
+                            printf("중간\n");
+                            // 중간 사이즈
+                        }
+                        else if (random > 87 && random <= 97) {
+                            printf("대\n");
+                            // 대 사이즈
+                        }
+                        else if (random > 97) {
+                            printf("특대\n");
+                            // 특대 사이즈
+                        }
+                    }
+                }
+                else if (control == ARROW) {
                     control = _getch();
                     switch (control) {
                     case RIGHT:
@@ -254,7 +275,7 @@ int main()
                             gotoxy(x, 27);
                             printf("  ");
                             x += 20;
-                            gotoxy( x, 27);
+                            gotoxy(x, 27);
                             printf(" ^");
                         }
                         else if (x == 49) {
@@ -301,7 +322,7 @@ int main()
                             gotoxy(x, 27);
                             printf(" ^");
                         }
-                        else if(x == 29) {
+                        else if (x == 29) {
                             gotoxy(x, 27);
                             printf("  ");
                             x = 89;
@@ -314,6 +335,7 @@ int main()
             }
         }
     }
+
 
     printf("asdf");
     setcolor(15);
