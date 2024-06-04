@@ -37,7 +37,7 @@ int main()
     cursorview();
     setcolor(15);
 
-    int length, money, x, y, random;
+    int length, money, x, y, random, f_ran;
 
     int npc[16][16] = { // 캐릭터
         0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,
@@ -343,7 +343,7 @@ int main()
                             y += 1;
                             gotoxy(47, y);
                         }
-                        gotoxy(55, 23);
+                        gotoxy(55, 23); 
                         printf("낚시중");
                         Sleep(750);
                         gotoxy(55, 23);
@@ -364,7 +364,93 @@ int main()
                         }
                         else if (random > 40 && random <= 70) {
                             system("cls");
-                            printf("일반\n");
+                            f_ran = rand() % 2;
+                            if (f_ran == 0) {
+                                y = 6;
+                                gotoxy(47, y);
+                                for (int i = 0; i < 16; i++) {
+                                    for (int j = 0; j < 16; j++) {
+                                        if (f_1[i][j] == 0)
+                                            printf("  ");
+                                        else if (f_1[i][j] == 1) {
+                                            SET_COLOR(FOREGROUND, 214, 197, 173);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_1[i][j] == 2) {
+                                            SET_COLOR(FOREGROUND, 198, 162, 113);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_1[i][j] == 3) {
+                                            SET_COLOR(FOREGROUND, 177, 137, 83);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_1[i][j] == 4) {
+                                            SET_COLOR(FOREGROUND, 152, 109, 78);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_1[i][j] == 5) {
+                                            SET_COLOR(FOREGROUND, 107, 68, 43);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_1[i][j] == 6) {
+                                            SET_COLOR(FOREGROUND, 0, 0, 0);
+                                            printf("▒▒");
+                                        }
+                                    }
+                                    y += 1;
+                                    gotoxy(47, y);
+                                }
+                                setcolor(15);
+                            }
+                            else if (f_ran == 1) {
+                                y = 6;
+                                gotoxy(47, y);
+                                for (int i = 0; i < 16; i++) {
+                                    for (int j = 0; j < 16; j++) {
+                                        if (f_2[i][j] == 0)
+                                            printf("  ");
+                                        else if (f_2[i][j] == 1) {
+                                            SET_COLOR(FOREGROUND, 189, 146, 139);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_2[i][j] == 2) {
+                                            SET_COLOR(FOREGROUND, 153, 115, 109);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_2[i][j] == 3) {
+                                            SET_COLOR(FOREGROUND, 88, 64, 60);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_2[i][j] == 4) {
+                                            SET_COLOR(FOREGROUND, 61, 43, 41);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_2[i][j] == 5) {
+                                            SET_COLOR(FOREGROUND, 114, 53, 48);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_2[i][j] == 6) {
+                                            SET_COLOR(FOREGROUND, 93, 119, 100);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_2[i][j] == 7) {
+                                            SET_COLOR(FOREGROUND, 62, 78, 67);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_2[i][j] == 8) {
+                                            SET_COLOR(FOREGROUND, 27, 42, 38);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_2[i][j] == 9) {
+                                            SET_COLOR(FOREGROUND, 171, 53, 51);
+                                            printf("▒▒");
+                                        }
+                                    }
+                                    y += 1;
+                                    gotoxy(47, y);
+                                }
+                                setcolor(15);
+                            }
                             Sleep(1000);
                             break;
                         }
