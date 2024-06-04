@@ -33,11 +33,9 @@ void gotoxy(int x, int y) {
 
 int main()
 {
-
+    SetConsoleTitle(TEXT("GSM 낚시왕"));
     cursorview();
     setcolor(15);
-
-    int length, money, x, y, random, f_ran;
 
     int npc[16][16] = { // 캐릭터
         0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,
@@ -196,7 +194,7 @@ int main()
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
 
-    SetConsoleTitle(TEXT("GSM 낚시왕"));
+    int x, y, length, money, random, f_ran;
 
     setcolor(3);
     gotoxy(33, 4);
@@ -309,7 +307,7 @@ int main()
     setcolor(15);
 
     gotoxy(32, 11);
-    printf("<--- 낚푸");
+    printf("<--- 김낚푸");
 
     gotoxy(0, 23);
     printf("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
@@ -317,7 +315,7 @@ int main()
     Sleep(1500);
 
     gotoxy(0, 26);
-    char* talk = ("낚푸 : \n         난 이 세상에 모든 물고기를 잡아서 낚시왕이 되고말거야!!!");
+    char* talk = ("김낚푸 : 나는 강태공의 양자 김낚푸.\n\t낚시로 돈을 벌어 내집마련을 할 사나이다!");
     length = strlen(talk);
     for (int i = 0; i < length; i++) {
         printf("%c", talk[i]);
@@ -406,8 +404,8 @@ int main()
         }
         setcolor(15);
         
-        gotoxy(42, 6);
-        printf("낚시 낚시!!");
+        gotoxy(38, 6);
+        printf("내집마련 하고만다.");
 
         gotoxy(108, 0);
         printf("잔액 : %d", money);
@@ -559,7 +557,7 @@ int main()
                                     gotoxy(48, y);
                                 }
                                 setcolor(15);
-                                gotoxy(50, 23);
+                                gotoxy(49, 23);
                                 printf("텅 빈 양동이를 낚았다!");
                             }
                             Sleep(2500);
@@ -605,7 +603,7 @@ int main()
                                 }
                                 setcolor(15);
                                 gotoxy(54, 23);
-                                printf("대구를 낡았다!");
+                                printf("대구를 낚았다!");
                             }
                             else if (f_ran >= 50) {
                                 y = 6;
@@ -656,7 +654,7 @@ int main()
                                 }
                                 setcolor(15);
                                 gotoxy(54, 23);
-                                printf("연어를 낡았다!");
+                                printf("연어를 낚았다!");
                             }
                             Sleep(2500);
                             break;
