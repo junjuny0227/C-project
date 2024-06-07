@@ -863,7 +863,6 @@ int main()
                                 char exit = _getch();
                                 if (exit == BACKSPACE) {
                                     system("cls");
-                                    Sleep(2000);
                                     break;
                                 }
                             }
@@ -884,11 +883,31 @@ int main()
                             printf("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
 
                             gotoxy(6, 5);
-                            printf("미역");
+                            printf("텅 빈 양동이");
                             gotoxy(6, 7);
                             printf("가격 : 1000000원");
                             gotoxy(6, 8);
-                            printf("수량 : 10개");
+                            printf("수량 : %d개", can);
+                            //가르기
+                            gotoxy(2, 12);
+                            printf("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                            for (int i = 0; i < 6; i++) {
+                                gotoxy(2, 13 + i);
+                                printf("▒▒");
+                            }
+                            for (int i = 0; i < 6; i++) {
+                                gotoxy(24, 13 + i);
+                                printf("▒▒");
+                            }
+                            gotoxy(2, 19);
+                            printf("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+
+                            gotoxy(6, 14);
+                            printf("버려진 신발");
+                            gotoxy(6, 16);
+                            printf("가격 : 1000000원");
+                            gotoxy(6, 17);
+                            printf("수량 : %d개", shoes);
                         }
                         setcolor(15);
                         break;
