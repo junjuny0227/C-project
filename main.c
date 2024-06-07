@@ -12,6 +12,7 @@
 #define DOWN 80
 #define ARROW 224
 #define ENTER 13
+#define BACKSPACE 8
 
 void setcolor(int color)
 {
@@ -858,6 +859,14 @@ int main()
                         system("cls");
 
                         while (1) {
+                            if (_kbhit()) {
+                                char exit = _getch();
+                                if (exit == BACKSPACE) {
+                                    system("cls");
+                                    Sleep(2000);
+                                    break;
+                                }
+                            }
                             gotoxy(2, 1);
                             printf("인벤토리");
 
@@ -881,6 +890,8 @@ int main()
                             gotoxy(6, 8);
                             printf("수량 : 10개");
                         }
+                        setcolor(15);
+                        break;
                     }
                 }
                 else if (control == ARROW) {
