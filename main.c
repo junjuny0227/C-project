@@ -251,7 +251,7 @@ int main()
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
 
-    int x, y, length, money, random, f_ran;
+    int x, y, length, money, random, f_ran, exit, control;
     int can = 0, shoes = 0, seaweed = 0, daegu = 0, yeonuh = 0, nimo = 0, bokuh = 0, turtle = 0, dolphin = 0, whale = 0;
     int betting = 0;
 
@@ -487,7 +487,7 @@ int main()
 
         while (1) {
             if (_kbhit()) {
-                int control = _getch(); // 엔터키 입력 확인
+                control = _getch(); // 엔터키 입력 확인
                 if (control == ENTER) { // 엔터키 처리
                     if (x == 29) {
                         money -= 2000;
@@ -913,7 +913,7 @@ int main()
 
                         while (1) {
                             if (_kbhit()) {
-                                char exit = _getch();
+                                exit = _getch();
                                 if (exit == BACKSPACE) {
                                     system("cls");
                                     break;
@@ -928,7 +928,7 @@ int main()
                         
                         while (1) {
                             if (_kbhit()) {
-                                char exit = _getch();
+                                exit = _getch();
                                 if (exit == BACKSPACE) {
                                     system("cls");
                                     break;
@@ -946,10 +946,12 @@ int main()
                             printf("베팅액 : ");
                             scanf_s("%d", &betting);
 
+
                             if (betting <= money) {
                                 break;
                             }
                             printf("베팅액이 현재 보유금액보다 많습니다. 다시 입력해주세요.\n");
+                            Sleep(2500);
                         }
                         nocursorview();
                         system("cls");
@@ -964,26 +966,26 @@ int main()
                         x = 49;
 
                         while (1) {
-                            if (_kbhit()) {
-                                char exit = _getch();
+                            if (_kbhit()) { // 키보드 입력 감지
+                                exit = _getch();
                                 if (exit == BACKSPACE) {
-                                    system("cls");
-                                    break;
+                                    system("cls"); // 화면 지우기
+                                    break; // 루프 탈출
                                 }
                                 else if (exit == ARROW) {
-                                    control = _getch();
-                                    switch (control) {
+                                    exit = _getch();
+                                    switch (exit) {
                                     case RIGHT:
                                         if (x == 49) {
                                             gotoxy(x, 24);
-                                            printf("  ");
+                                            printf("  "); 
                                             x = 70;
                                             gotoxy(x, 24);
-                                            printf("^");
+                                            printf("^"); 
                                         }
                                         else if (x == 70) {
                                             gotoxy(x, 24);
-                                            printf("  ");
+                                            printf("  "); 
                                             x = 49;
                                             gotoxy(x, 24);
                                             printf("^");
@@ -992,25 +994,25 @@ int main()
 
                                     case LEFT:
                                         if (x == 70) {
-                                            gotoxy(x, 27);
-                                            printf("  ");
+                                            gotoxy(x, 24);
+                                            printf("  "); // 기존 위치 지우기
                                             x = 49;
-                                            gotoxy(x, 27);
-                                            printf("^");
+                                            gotoxy(x, 24);
+                                            printf("^"); // 새로운 위치 표시
                                         }
                                         else if (x == 49) {
-                                            gotoxy(x, 27);
+                                            gotoxy(x, 24);
                                             printf("  ");
                                             x = 70;
-                                            gotoxy(x, 27);
+                                            gotoxy(x, 24);
                                             printf("^");
                                         }
                                         break;
                                     }
                                 }
                             }
+                            Sleep(1);
                         }
-
                         break;
                     }
                 }
