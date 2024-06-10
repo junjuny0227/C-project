@@ -522,6 +522,17 @@ int main()
         printf("^");
         x = 29;
 
+        gotoxy(88, 10);
+        printf("┌──────────────────────────────┐\n");
+        gotoxy(88, 11);
+        printf("│                              │\n");
+        gotoxy(88, 12);
+        printf("│   낚시 1회당 가격 : 3,000원  │\n");
+        gotoxy(88, 13);
+        printf("│                              │\n");
+        gotoxy(88, 14);
+        printf("└──────────────────────────────┘\n");
+
         while (1) {
             if (_kbhit()) {
                 control = _getch(); // 엔터키 입력 확인
@@ -1296,6 +1307,8 @@ int main()
                             x = 49;
                             gotoxy(x, 27);
                             printf(" ^");
+
+
                         }
                         else if (x == 49) {
                             gotoxy(x, 27);
@@ -1317,6 +1330,17 @@ int main()
                             x = 29;
                             gotoxy(x, 27);
                             printf("^");
+
+                            gotoxy(89, 10);
+                            printf("┌─────────────────────────────┐\n");
+                            gotoxy(89, 11);
+                            printf("│                             │\n");
+                            gotoxy(89, 12);
+                            printf("│   낚시 1회당 가격 : 3000원  │\n");
+                            gotoxy(89, 13);
+                            printf("│                             │\n");
+                            gotoxy(89, 14);
+                            printf("└─────────────────────────────┘\n");
                         }
                         break;
                     case LEFT:
