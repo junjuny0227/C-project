@@ -273,7 +273,7 @@ int main()
 
     int x, y, length, money, random, f_ran, exit, control;
     int can = 0, shoes = 0, seaweed = 0, daegu = 0, yeonuh = 0, nimo = 0, bokuh = 0, turtle = 0, dolphin = 0, whale = 0;
-    int betting = 0, answer = 0;
+    int betting = 0, answer = 0, coin_ran = 0;
 
     srand(time(NULL));
 
@@ -891,24 +891,19 @@ int main()
                         printf("인벤토리");
 
                         gotoxy(2, 3);
-                        printf("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
-                        for (int i = 0; i < 6; i++) {
-                            gotoxy(2, 4 + i);
-                            printf("▒▒");
-                        }
-                        for (int i = 0; i < 6; i++) {
-                            gotoxy(24, 4 + i);
-                            printf("▒▒");
-                        }
-                        gotoxy(2, 10);
-                        printf("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
-
-                        gotoxy(6, 5);
-                        printf("텅 빈 양동이");
-                        gotoxy(6, 7);
-                        printf("가격 : 1000000원");
-                        gotoxy(6, 8);
-                        printf("수량 : %d개", can);
+                        printf("┌─────────────────────┐\n");
+                        gotoxy(2, 4);
+                        printf("│  텅 빈 양동이       │\n");
+                        gotoxy(2, 5);
+                        printf("│                     │\n");
+                        gotoxy(2, 6);
+                        printf("│  수량 : %d개\n", can);
+                        gotoxy(24, 6);
+                        printf("│");
+                        gotoxy(2, 7);
+                        printf("│  가격 : 5000원      │\n");
+                        gotoxy(2, 8);
+                        printf("└─────────────────────┘\n");
                         //가르기
                         gotoxy(2, 12);
                         printf("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
@@ -964,6 +959,14 @@ int main()
                             gotoxy(51, 23);
                             printf("베팅액 : ");
                             scanf_s("%d", &betting);
+                            nocursorview();
+
+                            if (betting < 1000) {
+                                gotoxy(35, 23);
+                                printf("베팅액이 너무 적습니다. 1000원 이상으로 입력해주세요.\n");
+                                Sleep(2500);
+                                continue;
+                            }
 
                             if (betting <= money) {
                                 system("cls");
@@ -973,8 +976,10 @@ int main()
                             printf("베팅액이 현재 보유금액보다 많습니다. 다시 입력해주세요.\n");
                             Sleep(2500);
                         }
-                        nocursorview();
                         system("cls");
+
+                        gotoxy(79, 1);
+                        printf("취소하고 싶으시면 BackSpace를 눌러주세요.");
 
                         gotoxy(48, 23);
                         printf("앞면");
@@ -985,8 +990,6 @@ int main()
                         printf("^");
                         x = 49;
 
-                        gotoxy(79, 1);
-                        printf("취소하고 싶으시면 BackSpace를 눌러주세요.");
 
                         while (1) {
                             if (_kbhit()) { // 키보드 입력 감지
@@ -1034,6 +1037,30 @@ int main()
                                     }
                                 }
                                 else if (exit == ENTER) {
+                                    system("cls");
+                                    coin_ran = rand() % 2;
+
+                                    if (x == 49) {
+                                        answer = 1;
+                                    }
+                                    else if (x = 70) {
+                                        answer = 0;
+                                    }
+
+                                    if (coin_ran == answer) {
+                                        gotoxy(40, 23);
+                                        printf("축하합니다! 성공하셨습니다!!");
+                                        betting *= 2;
+                                        money += betting;
+                                        Sleep(2500);
+                                    }
+                                    else {
+                                        gotoxy(40, 23);
+                                        printf("아깝네요.. 다음 기회를 노려보세요!!");
+                                        money -= betting;
+                                        Sleep(2500);
+                                    }
+                                    break;
 
                                 }
                             }
