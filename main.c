@@ -40,8 +40,7 @@ void gotoxy(int x, int y) {
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
 
-int main()
-{
+int main() {
     SetConsoleTitle(TEXT("GSM 낚시왕"));
     nocursorview();
     setcolor(15);
@@ -131,6 +130,31 @@ int main()
         0,0,0,1,2,2,4,4,4,4,2,2,1,0,0,0,
         0,0,0,0,1,1,2,2,2,2,1,1,0,0,0,0,
         0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0
+    };
+
+    int money_bag[22][22] = {
+        0,0,0,0,0,0,0,0,1,2,2,2,2,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,1,1,5,5,6,6,6,2,2,0,0,0,0,0,0,0,
+        0,0,0,0,0,1,5,5,2,2,2,2,2,6,6,2,0,0,0,0,0,0,
+        0,0,0,0,0,1,5,2,1,1,1,1,1,2,6,2,0,0,0,0,0,0,
+        0,0,0,0,0,0,1,5,2,2,2,2,2,6,2,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,1,1,5,5,5,6,6,2,2,2,0,0,0,0,0,0,
+        0,0,0,0,0,1,3,3,2,2,2,2,2,4,4,4,2,0,0,0,0,0,
+        0,0,0,0,0,2,1,1,3,3,3,4,4,2,2,2,3,2,0,0,0,0,
+        0,0,0,0,1,5,5,5,1,1,1,2,2,6,5,5,2,3,2,0,0,0,
+        0,0,0,1,5,5,5,2,5,5,5,2,5,6,5,5,2,4,4,2,0,0,
+        0,0,1,5,5,5,1,5,5,5,5,5,2,5,6,6,6,2,3,2,0,0,
+        0,0,1,5,5,1,5,5,1,5,1,5,5,1,5,6,6,6,2,4,2,0,
+        0,1,5,5,5,5,5,2,2,2,2,1,5,5,5,6,6,6,2,3,4,2,
+        0,1,5,5,5,5,2,5,2,5,2,5,1,5,5,5,6,6,6,2,2,2,
+        1,5,5,5,5,5,1,5,2,5,2,5,5,5,5,5,6,6,6,2,0,0,
+        1,5,5,5,5,5,5,1,2,2,2,1,5,5,5,6,6,6,6,2,0,0,
+        1,5,5,5,5,5,5,5,2,5,2,5,1,5,5,6,6,6,2,0,0,0,
+        0,1,5,5,5,5,1,5,2,5,2,5,2,5,6,6,6,6,2,0,0,0,
+        0,1,5,5,5,5,5,1,2,2,2,2,5,5,6,6,6,2,0,0,0,0,
+        0,0,1,5,5,5,5,5,1,5,1,5,5,6,6,6,2,0,0,0,0,0,
+        0,0,0,1,1,5,5,5,5,5,5,5,6,6,2,2,0,0,0,0,0,0,
+        0,0,0,0,0,1,1,1,1,1,2,2,2,2,0,0,0,0,0,0,0,0
     };
 
     int t_1[16][16] = { // 신발
@@ -291,7 +315,7 @@ int main()
 
     int x, y, length, money, random, f_ran, exit, control;
     int can = 0, shoes = 0, seaweed = 0, daegu = 0, yeonuh = 0, nimo = 0, bokuh = 0, turtle = 0, dolphin = 0, whale = 0;
-    int betting = 0, answer = 0, coin_ran = 0;
+    int betting = 0, answer = 0, coin_ran = 0, fishing = 0;
 
     srand(time(NULL));
 
@@ -539,6 +563,7 @@ int main()
                 if (control == ENTER) { // 엔터키 처리
                     if (x == 29) {
                         money -= 3000;
+                        fishing++;
                         random = rand() % 100;
                         system("cls");
                         y = 6;
@@ -1151,8 +1176,49 @@ int main()
                     else if (x == 89) {
                         yescursorview();
 
+                        //if (fishing < 10) {
+
+                        //    nocursorview();
+                        //    break;
+                        //}
                         while (1) {
                             system("cls");
+
+                            y = 0;
+                            gotoxy(42, y);
+                            for (int i = 0; i < 22; i++) {
+                                for (int j = 0; j < 22; j++) {
+                                    if (money_bag[i][j] == 0)
+                                        printf("  ");
+                                    else if (money_bag[i][j] == 1) {
+                                        SET_COLOR(FOREGROUND, 99, 41, 3);
+                                        printf("▒▒");
+                                    }
+                                    else if (money_bag[i][j] == 2) {
+                                        SET_COLOR(FOREGROUND, 28, 6, 8);
+                                        printf("▒▒");
+                                    }
+                                    else if (money_bag[i][j] == 3) {
+                                        SET_COLOR(FOREGROUND, 191, 19, 19);
+                                        printf("▒▒");
+                                    }
+                                    else if (money_bag[i][j] == 4) {
+                                        SET_COLOR(FOREGROUND, 153, 1, 0);
+                                        printf("▒▒");
+                                    }
+                                    else if (money_bag[i][j] == 5) {
+                                        SET_COLOR(FOREGROUND, 193, 125, 18);
+                                        printf("▒▒");
+                                    }
+                                    else if (money_bag[i][j] == 6) {
+                                        SET_COLOR(FOREGROUND, 153, 87, 0);
+                                        printf("▒▒");
+                                    }
+                                }
+                                y += 1;
+                                gotoxy(42, y);
+                            }
+
                             gotoxy(51, 23);
                             printf("베팅액 : ");
                             scanf_s("%d", &betting);
@@ -1276,14 +1342,14 @@ int main()
                                     }
 
                                     if (coin_ran == answer) {
-                                        gotoxy(40, 23);
+                                        gotoxy(44, 23);
                                         printf("축하합니다! 성공하셨습니다!!");
                                         betting *= 2;
                                         money += betting;
                                         Sleep(2500);
                                     }
                                     else {
-                                        gotoxy(40, 23);
+                                        gotoxy(42, 23);
                                         printf("아깝네요.. 다음 기회를 노려보세요!!");
                                         money -= betting;
                                         Sleep(2500);
@@ -1331,16 +1397,16 @@ int main()
                             gotoxy(x, 27);
                             printf("^");
 
-                            gotoxy(89, 10);
-                            printf("┌─────────────────────────────┐\n");
-                            gotoxy(89, 11);
-                            printf("│                             │\n");
-                            gotoxy(89, 12);
-                            printf("│   낚시 1회당 가격 : 3000원  │\n");
-                            gotoxy(89, 13);
-                            printf("│                             │\n");
-                            gotoxy(89, 14);
-                            printf("└─────────────────────────────┘\n");
+                            gotoxy(88, 10);
+                            printf("┌──────────────────────────────┐\n");
+                            gotoxy(88, 11);
+                            printf("│                              │\n");
+                            gotoxy(88, 12);
+                            printf("│   낚시 1회당 가격 : 3,000원  │\n");
+                            gotoxy(88, 13);
+                            printf("│                              │\n");
+                            gotoxy(88, 14);
+                            printf("└──────────────────────────────┘\n");
                         }
                         break;
                     case LEFT:
