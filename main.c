@@ -287,6 +287,29 @@ int main() {
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
 
+    int f_5[20][25] = {
+       0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,
+       0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,1,0,0,0,0,0,0,0,0,
+       0,0,0,0,0,0,0,1,1,1,1,1,0,0,1,2,6,1,0,0,0,0,0,0,0,
+       0,0,0,0,0,0,1,2,2,4,2,4,1,1,2,2,6,6,1,0,0,0,0,0,0,
+       0,0,0,0,0,1,2,2,2,2,4,4,4,2,3,2,6,6,1,0,0,0,0,0,0,
+       0,0,0,0,1,2,2,2,7,6,2,4,2,4,2,3,6,6,1,0,0,0,0,0,0,
+       0,0,0,0,1,2,2,2,6,0,6,2,4,4,2,4,4,6,6,1,0,0,0,0,0,
+       0,0,0,1,2,2,2,2,6,6,6,2,4,2,3,3,3,6,6,1,0,0,0,0,0,
+       0,0,0,1,4,4,2,2,2,6,7,2,3,3,2,2,2,3,7,7,1,0,0,0,0,
+       0,0,1,4,5,5,5,2,2,2,2,3,2,2,6,6,3,8,8,8,1,0,0,0,0,
+       0,0,1,5,3,3,5,4,2,2,3,3,6,6,7,7,3,2,7,7,1,0,0,0,0,
+       0,0,0,1,3,3,5,4,2,3,9,9,3,7,6,6,6,1,2,2,2,1,0,0,0,
+       0,0,1,1,3,3,3,5,4,2,3,3,9,3,6,3,1,0,1,1,1,0,0,0,0,
+       0,1,10,1,4,3,3,5,4,2,2,2,3,9,3,0,1,0,0,0,0,0,0,0,0,
+       1,10,1,0,1,5,5,5,4,4,4,4,3,9,3,1,0,0,0,0,0,0,0,0,0,
+       1,10,1,0,0,1,1,1,4,4,4,3,3,9,3,1,0,0,0,0,0,0,0,0,0,
+       0,1,10,1,0,0,0,0,1,1,3,10,10,3,9,9,1,0,0,0,0,0,0,0,0,
+       0,0,1,10,1,0,0,0,0,0,1,10,1,10,3,1,0,0,0,0,0,0,0,0,0,
+       0,0,1,10,1,0,0,0,0,0,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,
+       0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+    };
+
     int f_6[20][20] = { // 돌고래
         0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,
         0,0,0,0,0,0,0,0,5,2,2,5,0,0,0,0,0,0,0,0,
@@ -310,9 +333,36 @@ int main() {
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
 
-    int x, y, length, money, random, f_ran, exit, control;
+    int f_7[23][30] = {
+       0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,1,1,1,
+       0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,1,1,1,2,2,1,
+       0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,2,2,1,0,
+       0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,3,2,3,1,0,0,
+       0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,1,3,3,3,1,0,0,
+       0,0,0,0,0,0,1,1,1,1,2,2,2,2,7,7,2,2,1,1,1,0,0,1,3,3,1,0,0,0,
+       0,0,0,0,1,1,2,2,2,7,8,8,8,2,2,8,8,2,2,8,2,1,1,3,3,1,0,0,0,0,
+       0,0,0,1,2,2,2,2,7,8,8,7,2,2,2,2,2,2,2,2,2,2,2,3,3,1,0,0,0,0,
+       0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,1,0,0,0,0,
+       0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,1,0,0,0,
+       0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,
+       1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,1,1,0,
+       1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,2,2,2,1,0,
+       1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,1,1,1,0,0,
+       1,7,8,8,8,7,2,2,2,2,2,2,0,2,2,2,2,2,2,2,2,2,1,1,1,1,0,0,0,0,
+       1,8,4,8,4,8,8,8,7,2,2,2,2,2,2,2,2,6,6,1,2,2,2,2,2,1,0,0,0,0,
+       0,1,4,8,4,8,8,4,8,8,8,7,2,2,2,2,6,6,6,4,1,1,2,2,2,2,1,0,0,0,
+       0,1,8,8,4,8,8,4,8,8,4,8,8,7,2,6,6,4,4,4,4,4,1,1,1,1,0,0,0,0,
+       0,0,1,8,8,4,8,4,8,8,4,8,8,4,4,4,4,4,4,4,4,1,0,0,0,0,0,0,0,0,
+       0,0,0,1,4,5,8,8,4,8,8,5,4,4,4,4,4,4,4,1,1,0,0,0,0,0,0,0,0,0,
+       0,0,0,0,1,1,5,4,4,5,4,4,5,5,4,4,4,1,1,0,0,0,0,0,0,0,0,0,0,0,
+       0,0,0,0,0,0,1,1,1,4,5,4,4,4,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,
+       0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+    }; 
+
+    int x, y, length, money = 0, random, f_ran, exit, control;
     int can = 0, shoes = 0, seaweed = 0, daegu = 0, yeonuh = 0, nimo = 0, bokuh = 0, inguh = 0, dolphin = 0, whale = 0;
     int betting = 0, answer = 0, coin_ran = 0, fishing = 0;
+    int trash_r = 40, normal_r = 70, middle_r = 90, big_r = 97, max = 99;
 
     srand(time(NULL));
 
@@ -460,8 +510,6 @@ int main() {
     }
     setcolor(15);
 
-    money = 50000;
-
     while (1) {
         system("cls");
 
@@ -526,40 +574,47 @@ int main() {
         gotoxy(38, 6);
         printf("내집마련 하고만다.");
 
-        gotoxy(100, 0);
+        gotoxy(98, 0);
         printf("자금 : %d원", money);
         gotoxy(0, 23);
         printf("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
-        gotoxy(28, 26);
+        gotoxy(24, 26);
         printf("낚시하기");
-        gotoxy(40, 26);
-        printf("물고기 판매");
-        gotoxy(64, 26);
-        printf("장비 업그레이드");
-        gotoxy(86, 26);
+        gotoxy(44, 26);
+        printf("아이템 판매");
+        gotoxy(67, 26);
+        printf("장비 강화");
+        gotoxy(88, 26);
         printf("미니게임");
 
-        gotoxy(29, 27);
+        gotoxy(27, 27);
         printf("^");
-        x = 29;
+        x = 27;
 
-        gotoxy(88, 10);
+        gotoxy(88, 9);
         printf("┌──────────────────────────────┐\n");
+        gotoxy(88, 10);
+        printf("│   꽝 확률 : %d%%              │\n", trash_r);
         gotoxy(88, 11);
-        printf("│                              │\n");
+        printf("│   일반 물고기 확률 : %d%%     │\n", normal_r - trash_r);
         gotoxy(88, 12);
-        printf("│   낚시 1회당 가격 : 3,000원  │\n");
+        printf("│   중간 물고기 확률 : %d%%     │\n", middle_r - normal_r);
         gotoxy(88, 13);
-        printf("│                              │\n");
+        printf("│   대 물고기 확률 : %d%%\n", big_r - middle_r);
+        gotoxy(119, 13);
+        printf("│");
         gotoxy(88, 14);
+        printf("│   특대 물고기 확률 : %d%%\n", max - big_r);
+        gotoxy(119, 14);
+        printf("│");
+        gotoxy(88, 15);
         printf("└──────────────────────────────┘\n");
 
         while (1) {
             if (_kbhit()) {
                 control = _getch(); // 엔터키 입력 확인
                 if (control == ENTER) { // 엔터키 처리
-                    if (x == 29) {
-                        money -= 3000;
+                    if (x == 27) {
                         fishing++;
                         random = rand() % 100;
                         system("cls");
@@ -607,7 +662,7 @@ int main() {
                         printf("낚시중...");
                         Sleep(750);
 
-                        if (random <= 50) {
+                        if (random <= trash_r) {
                             system("cls");
                             f_ran = rand() % 100;
                             if (f_ran <= 33) {
@@ -737,7 +792,7 @@ int main() {
                             Sleep(2500);
                             break;
                         }
-                        else if (random > 50 && random <= 78) {
+                        else if (random > trash_r && random <= normal_r) {
                             system("cls");
                             f_ran = rand() % 100;
                             if (f_ran <= 33) {
@@ -879,7 +934,7 @@ int main() {
                             Sleep(2500);
                             break;
                         }
-                        else if (random > 78 && random <= 93) {
+                        else if (random > middle_r && random <= big_r) {
                             system("cls");
                             f_ran = rand() % 100;
                             if (f_ran <= 50) {
@@ -944,12 +999,63 @@ int main() {
                             }
                             else if (f_ran > 50 && f_ran <= 99) {
                                 inguh++;
+                                y = 2;
+                                gotoxy(44, y);
+                                for (int i = 0; i < 20; i++) {
+                                    for (int j = 0; j < 25; j++) {
+                                        if (f_5[i][j] == 0) // 빈공간
+                                            printf("  ");
+                                        else if (f_5[i][j] == 1) { 
+                                            SET_COLOR(FOREGROUND, 49, 49, 49);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_5[i][j] == 2) { 
+                                            SET_COLOR(FOREGROUND, 247, 115, 82);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_5[i][j] == 3) { 
+                                            SET_COLOR(FOREGROUND, 82, 82, 82);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_5[i][j] == 4) { 
+                                            SET_COLOR(FOREGROUND, 197, 82, 66);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_5[i][j] == 5) { 
+                                            SET_COLOR(FOREGROUND, 255, 181, 165);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_5[i][j] == 6) { 
+                                            SET_COLOR(FOREGROUND, 197, 189, 189);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_5[i][j] == 7) { 
+                                            SET_COLOR(FOREGROUND, 255, 255, 255);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_5[i][j] == 8) { 
+                                            SET_COLOR(FOREGROUND, 132, 132, 115);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_5[i][j] == 9) { 
+                                            SET_COLOR(FOREGROUND, 247, 247, 41);
+                                            printf("▒▒");
+                                        }
+                                        else if (f_5[i][j] == 10) {
+                                            SET_COLOR(FOREGROUND, 189, 165, 66);
+                                            printf("▒▒");
+                                        }
+                                    }
+                                    y += 1;
+                                    gotoxy(44, y);
+                                }
+                                setcolor(15);
                                 printf("잉어를 낚았다!");
                             }
                             Sleep(2500);
                             break;
                         }
-                        else if (random > 93 && random <= 98) {
+                        else if (random > big_r && random < max) {
                             system("cls");
                             f_ran = rand() % 100;
                             if (f_ran < 100) {
@@ -991,9 +1097,52 @@ int main() {
                             Sleep(2500);
                             break;
                         }
-                        else if (random > 98) {
+                        else if (random >= max) {
                             system("cls");
-                            printf("특대\n");
+                            y = 0;
+                            gotoxy(34, y);
+                            for (int i = 0; i < 20; i++) {
+                                for (int j = 0; j < 25; j++) {
+                                    if (f_7[i][j] == 0) // 빈공간
+                                        printf("  ");
+                                    else if (f_7[i][j] == 1) {
+                                        SET_COLOR(FOREGROUND, 49, 49, 49);
+                                        printf("▒▒");
+                                    }
+                                    else if (f_7[i][j] == 2) {
+                                        SET_COLOR(FOREGROUND, 82, 156, 247);
+                                        printf("▒▒");
+                                    }
+                                    else if (f_7[i][j] == 3) {
+                                        SET_COLOR(FOREGROUND, 66, 123, 206);
+                                        printf("▒▒");
+                                    }
+                                    else if (f_7[i][j] == 4) {
+                                        SET_COLOR(FOREGROUND, 189, 189, 189);
+                                        printf("▒▒");
+                                    }
+                                    else if (f_7[i][j] == 5) {
+                                        SET_COLOR(FOREGROUND, 132, 132, 115);
+                                        printf("▒▒");
+                                    }
+                                    else if (f_7[i][j] == 6) {
+                                        SET_COLOR(FOREGROUND, 66, 123, 206);
+                                        printf("▒▒");
+                                    }
+                                    else if (f_7[i][j] == 7) {
+                                        SET_COLOR(FOREGROUND, 165, 197, 255);
+                                        printf("▒▒");
+                                    }
+                                    else if (f_7[i][j] == 8) {
+                                        SET_COLOR(FOREGROUND, 255, 255, 255);
+                                        printf("▒▒");
+                                    }
+                                }
+                                y += 1;
+                                gotoxy(44, y);
+                            }
+                            setcolor(15);
+                            printf("고래를 낚았다!!!");
                             Sleep(2500);
                             break;
                         }
@@ -1279,11 +1428,20 @@ int main() {
                                             printf("^");
                                         }
                                         else if (y == 9) {
-                                            gotoxy(x, y);
-                                            printf("  ");
-                                            y = 25;
-                                            gotoxy(x, y);
-                                            printf("^");
+                                            if (x == 65 || x == 91) {
+                                                gotoxy(x, y);
+                                                printf("  ");
+                                                y = 17;
+                                                gotoxy(x, y);
+                                                printf("^");
+                                            }
+                                            else {
+                                                gotoxy(x, y);
+                                                printf("  ");
+                                                y = 25;
+                                                gotoxy(x, y);
+                                                printf("^");
+                                            }
                                         }
                                     }
                                 }
@@ -1292,7 +1450,7 @@ int main() {
                         setcolor(15);
                         break;
                     }
-                    else if (x == 69) {
+                    else if (x == 71) {
                         system("cls");
                         
                         while (1) {
@@ -1308,7 +1466,7 @@ int main() {
                         break;
                     }
 
-                    else if (x == 89) {
+                    else if (x == 91) {
                         yescursorview();
 
                         //if (fishing < 10) {
@@ -1353,6 +1511,7 @@ int main() {
                                 y += 1;
                                 gotoxy(42, y);
                             }
+                            setcolor(15);
 
                             gotoxy(51, 23);
                             printf("베팅액 : ");
@@ -1502,87 +1661,195 @@ int main() {
                     control = _getch();
                     switch (control) {
                     case RIGHT:
-                        if (x == 29) {
+                        if (x == 27) {
                             gotoxy(x, 27);
                             printf("  ");
                             x = 49;
                             gotoxy(x, 27);
-                            printf(" ^");
+                            printf("^");
 
+                            gotoxy(88, 9);
+                            printf("                                \n");
+                            gotoxy(88, 10);
+                            printf("┌──────────────────────────────┐\n");
+                            gotoxy(88, 11);
+                            printf("│                              │\n");
                             gotoxy(88, 12);
                             printf("│   아이템 판매 상점으로 가기  │\n");
+                            gotoxy(88, 13);
+                            printf("│                              │\n");
+                            gotoxy(88, 14);
+                            printf("└──────────────────────────────┘\n");
+                            gotoxy(88, 15);
+                            printf("                                \n");
                         }
                         else if (x == 49) {
                             gotoxy(x, 27);
                             printf("  ");
-                            x = 69;
+                            x = 71;
                             gotoxy(x, 27);
-                            printf(" ^");
+                            printf("^");
 
+                            gotoxy(88, 9);
+                            printf("                                \n");
+                            gotoxy(88, 10);
+                            printf("┌──────────────────────────────┐\n");
+                            gotoxy(88, 11);
+                            printf("│                              │\n");
                             gotoxy(88, 12);
                             printf("│    장비 구매 상점으로 가기   │\n");
+                            gotoxy(88, 13);
+                            printf("│                              │\n");
+                            gotoxy(88, 14);
+                            printf("└──────────────────────────────┘\n");
+                            gotoxy(88, 15);
+                            printf("                                \n");
                         }
-                        else if (x == 69) {
+                        else if (x == 71) {
                             gotoxy(x, 27);
                             printf("  ");
-                            x = 89;
+                            x = 91;
                             gotoxy(x, 27);
                             printf("^");
 
+                            gotoxy(88, 9);
+                            printf("                                \n");
+                            gotoxy(88, 10);
+                            printf("┌──────────────────────────────┐\n");
+                            gotoxy(88, 11);
+                            printf("│                              │\n");
                             gotoxy(88, 12);
-                            printf("│   베팅 최소 금액 : 1,000원   │\n");
+                            printf("│    베팅 최소 금액 : 1,000원  │\n");
+                            gotoxy(88, 13);
+                            printf("│                              │\n");
+                            gotoxy(88, 14);
+                            printf("└──────────────────────────────┘\n");
+                            gotoxy(88, 15);
+                            printf("                                \n");
                         }
-                        else if (x == 89) {
+                        else if (x == 91) {
                             gotoxy(x, 27);
                             printf("  ");
-                            x = 29;
+                            x = 27;
                             gotoxy(x, 27);
                             printf("^");
 
+                            gotoxy(88, 14);
+                            printf("                                \n");
+                            gotoxy(88, 9);
+                            printf("┌──────────────────────────────┐\n");
+                            gotoxy(88, 10);
+                            printf("│   꽝 확률 : %d%%              │\n", trash_r);
+                            gotoxy(88, 11);
+                            printf("│   일반 물고기 확률 : %d%%     │\n", normal_r - trash_r);
                             gotoxy(88, 12);
-                            printf("│   낚시 1회당 가격 : 3,000원  │\n");
+                            printf("│   중간 물고기 확률 : %d%%     │\n", middle_r - normal_r);
+                            gotoxy(88, 13);
+                            printf("│   대 물고기 확률 : %d%%\n", big_r - middle_r);
+                            gotoxy(119, 13);
+                            printf("│");
+                            gotoxy(88, 14);
+                            printf("│   특대 물고기 확률 : %d%%\n", max - big_r);
+                            gotoxy(119, 14);
+                            printf("│");
+                            gotoxy(88, 15);
+                            printf("└──────────────────────────────┘\n");
                         }
                         break;
                     case LEFT:
                         if (x == 49) {
                             gotoxy(x, 27);
                             printf("  ");
-                            x = 29;
+                            x = 27;
                             gotoxy(x, 27);
                             printf("^");
 
+                            gotoxy(88, 14);
+                            printf("                                \n");
+                            gotoxy(88, 9);
+                            printf("┌──────────────────────────────┐\n");
+                            gotoxy(88, 10);
+                            printf("│   꽝 확률 : %d%%              │\n", trash_r);
+                            gotoxy(88, 11);
+                            printf("│   일반 물고기 확률 : %d%%     │\n", normal_r - trash_r);
                             gotoxy(88, 12);
-                            printf("│   낚시 1회당 가격 : 3,000원  │\n");
+                            printf("│   중간 물고기 확률 : %d%%     │\n", middle_r - normal_r);
+                            gotoxy(88, 13);
+                            printf("│   대 물고기 확률 : %d%%\n", big_r - middle_r);
+                            gotoxy(119, 13);
+                            printf("│");
+                            gotoxy(88, 14);
+                            printf("│   특대 물고기 확률 : %d%%\n", max - big_r);
+                            gotoxy(119, 14);
+                            printf("│");
+                            gotoxy(88, 15);
+                            printf("└──────────────────────────────┘\n");
                         }
-                        else if (x == 69) {
+                        else if (x == 71) {
                             gotoxy(x, 27);
                             printf("  ");
                             x = 49;
                             gotoxy(x, 27);
-                            printf(" ^");
+                            printf("^");
 
+                            gotoxy(88, 9);
+                            printf("                                \n");
+                            gotoxy(88, 10);
+                            printf("┌──────────────────────────────┐\n");
+                            gotoxy(88, 11);
+                            printf("│                              │\n");
                             gotoxy(88, 12);
                             printf("│   아이템 판매 상점으로 가기  │\n");
+                            gotoxy(88, 13);
+                            printf("│                              │\n");
+                            gotoxy(88, 14);
+                            printf("└──────────────────────────────┘\n");
+                            gotoxy(88, 15);
+                            printf("                                \n");
                         }
-                        else if (x == 89) {
+                        else if (x == 91) {
                             gotoxy(x, 27);
                             printf("  ");
-                            x = 69;
-                            gotoxy(x, 27);
-                            printf(" ^");
-
-                            gotoxy(88, 12);
-                            printf("│    장비 구매 상점으로 가기   │\n");
-                        }
-                        else if (x == 29) {
-                            gotoxy(x, 27);
-                            printf("  ");
-                            x = 89;
+                            x = 71;
                             gotoxy(x, 27);
                             printf("^");
 
+                            gotoxy(88, 9);
+                            printf("                                \n");
+                            gotoxy(88, 10);
+                            printf("┌──────────────────────────────┐\n");
+                            gotoxy(88, 11);
+                            printf("│                              │\n");
                             gotoxy(88, 12);
-                            printf("│   베팅 최소 금액 : 1,000원   │\n");
+                            printf("│    장비 구매 상점으로 가기   │\n");
+                            gotoxy(88, 13);
+                            printf("│                              │\n");
+                            gotoxy(88, 14);
+                            printf("└──────────────────────────────┘\n");
+                            gotoxy(88, 15);
+                            printf("                                \n");
+                        }
+                        else if (x == 27) {
+                            gotoxy(x, 27);
+                            printf("  ");
+                            x = 91;
+                            gotoxy(x, 27);
+                            printf("^");
+
+                            gotoxy(88, 9);
+                            printf("                                \n");
+                            gotoxy(88, 10);
+                            printf("┌──────────────────────────────┐\n");
+                            gotoxy(88, 11);
+                            printf("│                              │\n");
+                            gotoxy(88, 12);
+                            printf("│    베팅 최소 금액 : 1,000원  │\n");
+                            gotoxy(88, 13);
+                            printf("│                              │\n");
+                            gotoxy(88, 14);
+                            printf("└──────────────────────────────┘\n");
+                            gotoxy(88, 15);
+                            printf("                                \n");
                         }
                         break;
                     }
