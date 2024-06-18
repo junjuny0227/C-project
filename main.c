@@ -154,6 +154,46 @@ int main() {
         0,0,0,0,0,1,1,1,1,1,2,2,2,2,0,0,0,0,0,0,0,0
     };
 
+    int bad[18][18] = {
+        0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,
+        0,1,1,1,1,0,0,0,1,2,2,2,2,2,2,1,0,0,
+        1,4,4,4,4,1,1,1,2,3,3,3,3,3,3,1,0,0,
+        1,4,4,5,4,1,2,2,3,3,3,1,1,1,1,1,0,0,
+        1,4,5,4,4,1,2,3,3,3,3,2,2,2,2,2,1,0,
+        1,4,5,4,4,1,2,3,3,3,3,3,3,3,3,3,1,0,
+        1,4,5,4,4,1,2,3,3,3,3,3,3,1,1,1,1,0,
+        1,4,4,4,4,1,3,3,3,3,3,3,3,2,2,2,2,1,
+        1,4,4,4,4,1,3,3,3,3,3,3,3,3,3,3,3,1,
+        1,4,4,4,4,1,3,3,3,3,3,3,3,3,1,1,1,0,
+        1,4,4,4,4,1,3,3,3,3,3,3,3,3,2,2,1,0,
+        1,4,4,4,4,1,3,3,3,3,3,2,3,3,3,3,1,0,
+        1,4,4,4,4,1,1,1,3,3,2,1,1,1,1,1,0,0,
+        0,1,1,1,1,0,0,1,3,3,2,1,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,1,3,2,1,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,1,2,1,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+    };
+
+    int clap[16][16] = {
+       0,0,0,1,1,0,4,5,0,0,0,0,0,0,0,0,
+       0,1,1,2,4,5,3,4,5,0,0,0,0,0,0,0,
+       0,2,1,1,2,4,5,3,4,5,0,3,5,0,0,0,
+       1,1,2,4,5,3,4,5,3,4,5,3,5,5,0,0,
+       2,1,1,2,4,5,3,4,5,3,4,5,3,5,5,0,
+       0,2,1,1,2,4,5,3,4,5,5,5,5,3,5,4,
+       1,1,2,4,5,3,4,5,5,5,5,5,5,5,5,4,
+       2,1,1,2,4,5,3,4,5,5,5,5,5,5,5,4,
+       0,2,1,1,2,4,5,5,5,5,5,5,5,5,4,4,
+       0,0,2,1,1,2,4,5,5,5,5,5,5,4,4,3,
+       0,0,0,2,1,1,2,4,5,5,5,5,4,4,3,0,
+       0,0,0,0,2,1,1,2,4,4,4,4,4,3,0,0,
+       0,0,0,0,0,2,2,2,2,3,3,3,3,0,0,0,
+       0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+       0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+       0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+    };
+
     int t_1[16][16] = { // 신발
         1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,
         1,3,3,2,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -359,10 +399,11 @@ int main() {
        0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     }; 
 
-    int x, y, length, money = 0, random, f_ran, exit, control;
+    int x = 0, y = 0, length = 0, random = 0, f_ran = 0, exit = 0, control = 0;
     int can = 0, shoes = 0, seaweed = 0, daegu = 0, yeonuh = 0, nimo = 0, bokuh = 0, inguh = 0, dolphin = 0, whale = 0;
-    int betting = 0, answer = 0, coin_ran = 0, fishing = 0;
+    int betting = 0, answer = 0, coin_ran = 0, fishing = 0, money = 1234567890;
     int trash_r = 40, normal_r = 70, middle_r = 90, big_r = 97, max = 99;
+    /*쓰레기40 일반30 중간20 대7 특대2*/
 
     srand(time(NULL));
 
@@ -574,8 +615,8 @@ int main() {
         gotoxy(38, 6);
         printf("내집마련 하고만다.");
 
-        gotoxy(98, 0);
-        printf("자금 : %d원", money);
+        gotoxy(104, 0);
+        printf("잔액: %10d", money);
         gotoxy(0, 23);
         printf("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
         gotoxy(24, 26);
@@ -662,7 +703,7 @@ int main() {
                         printf("낚시중...");
                         Sleep(750);
 
-                        if (random <= trash_r) {
+                        if (random < trash_r) { /*쓰레기40 일반30 중간20 대7 특대2*/
                             system("cls");
                             f_ran = rand() % 100;
                             if (f_ran <= 33) {
@@ -792,7 +833,7 @@ int main() {
                             Sleep(2500);
                             break;
                         }
-                        else if (random > trash_r && random <= normal_r) {
+                        else if (random >= trash_r && random < normal_r) {
                             system("cls");
                             f_ran = rand() % 100;
                             if (f_ran <= 33) {
@@ -934,7 +975,7 @@ int main() {
                             Sleep(2500);
                             break;
                         }
-                        else if (random > middle_r && random <= big_r) {
+                        else if (random >= middle_r && random < big_r) {
                             system("cls");
                             f_ran = rand() % 100;
                             if (f_ran <= 50) {
@@ -999,8 +1040,8 @@ int main() {
                             }
                             else if (f_ran > 50 && f_ran <= 99) {
                                 inguh++;
-                                y = 2;
-                                gotoxy(44, y);
+                                y = 1;
+                                gotoxy(40, y);
                                 for (int i = 0; i < 20; i++) {
                                     for (int j = 0; j < 25; j++) {
                                         if (f_5[i][j] == 0) // 빈공간
@@ -1047,15 +1088,16 @@ int main() {
                                         }
                                     }
                                     y += 1;
-                                    gotoxy(44, y);
+                                    gotoxy(40, y);
                                 }
                                 setcolor(15);
+                                gotoxy(54, 23);
                                 printf("잉어를 낚았다!");
                             }
                             Sleep(2500);
                             break;
                         }
-                        else if (random > big_r && random < max) {
+                        else if (random >= big_r && random < max) {
                             system("cls");
                             f_ran = rand() % 100;
                             if (f_ran < 100) {
@@ -1101,8 +1143,8 @@ int main() {
                             system("cls");
                             y = 0;
                             gotoxy(34, y);
-                            for (int i = 0; i < 20; i++) {
-                                for (int j = 0; j < 25; j++) {
+                            for (int i = 0; i < 23; i++) {
+                                for (int j = 0; j < 30; j++) {
                                     if (f_7[i][j] == 0) // 빈공간
                                         printf("  ");
                                     else if (f_7[i][j] == 1) {
@@ -1139,9 +1181,10 @@ int main() {
                                     }
                                 }
                                 y += 1;
-                                gotoxy(44, y);
+                                gotoxy(34, y);
                             }
                             setcolor(15);
+                            gotoxy(54, 23);
                             printf("고래를 낚았다!!!");
                             Sleep(2500);
                             break;
@@ -1150,170 +1193,168 @@ int main() {
                     else if (x == 49) {
                         system("cls");
 
-                        gotoxy(2, 1);
-                        printf("인벤토리");
-
-
-                        gotoxy(2, 3);
-                        printf("┌─────────────────────┐\n");
-                        gotoxy(2, 4);
-                        printf("│  텅 빈 양동이       │\n");
-                        gotoxy(2, 5);
-                        printf("│                     │\n");
-                        gotoxy(2, 6);
-                        printf("│  수량 : %d개\n", can);
-                        gotoxy(24, 6);
-                        printf("│");
-                        gotoxy(2, 7);
-                        printf("│  가격 : 1000원      │\n");
-                        gotoxy(2, 8);
-                        printf("└─────────────────────┘\n");
-
-                        gotoxy(28, 3);
-                        printf("┌─────────────────────┐\n");
-                        gotoxy(28, 4);
-                        printf("│  버려진 신발        │\n");
-                        gotoxy(28, 5);
-                        printf("│                     │\n");
-                        gotoxy(28, 6);
-                        printf("│  수량 : %d개\n", shoes);
-                        gotoxy(50, 6);
-                        printf("│");
-                        gotoxy(28, 7);
-                        printf("│  가격 : 1000원      │\n");
-                        gotoxy(28, 8);
-                        printf("└─────────────────────┘\n");
-
-                        gotoxy(54, 3);
-                        printf("┌─────────────────────┐\n");
-                        gotoxy(54, 4);
-                        printf("│  미역 줄기          │\n");
-                        gotoxy(54, 5);
-                        printf("│                     │\n");
-                        gotoxy(54, 6);
-                        printf("│  수량 : %d개\n", seaweed);
-                        gotoxy(76, 6);
-                        printf("│");
-                        gotoxy(54, 7);
-                        printf("│  가격 : 1000원      │\n");
-                        gotoxy(54, 8);
-                        printf("└─────────────────────┘\n");
-
-                        //두번째 줄
-
-                        gotoxy(2, 11);
-                        printf("┌─────────────────────┐\n");
-                        gotoxy(2, 12);
-                        printf("│  대구               │\n");
-                        gotoxy(2, 13);
-                        printf("│                     │\n");
-                        gotoxy(2, 14);
-                        printf("│  수량 : %d개\n", daegu);
-                        gotoxy(24, 14);
-                        printf("│");
-                        gotoxy(2, 15);
-                        printf("│  가격 : 4500원      │\n");
-                        gotoxy(2, 16);
-                        printf("└─────────────────────┘\n");
-
-                        gotoxy(28, 11);
-                        printf("┌─────────────────────┐\n");
-                        gotoxy(28, 12);
-                        printf("│  연어               │\n");
-                        gotoxy(28, 13);
-                        printf("│                     │\n");
-                        gotoxy(28, 14);
-                        printf("│  수량 : %d개\n", yeonuh);
-                        gotoxy(50, 14);
-                        printf("│");
-                        gotoxy(28, 15);
-                        printf("│  가격 : 4500원      │\n");
-                        gotoxy(28, 16);
-                        printf("└─────────────────────┘\n");
-
-                        gotoxy(54, 11);
-                        printf("┌─────────────────────┐\n");
-                        gotoxy(54, 12);
-                        printf("│  흰동가리           │\n");
-                        gotoxy(54, 13);
-                        printf("│                     │\n");
-                        gotoxy(54, 14);
-                        printf("│  수량 : %d개\n", nimo);
-                        gotoxy(76, 14);
-                        printf("│");
-                        gotoxy(54, 15);
-                        printf("│  가격 : 4500원      │\n");
-                        gotoxy(54, 16);
-                        printf("└─────────────────────┘\n");
-
-                        // 세번째 줄
-
-                        gotoxy(2, 19);
-                        printf("┌─────────────────────┐\n");
-                        gotoxy(2, 20);
-                        printf("│  돌고래             │\n");
-                        gotoxy(2, 21);
-                        printf("│                     │\n");
-                        gotoxy(2, 22);
-                        printf("│  수량 : %d개\n", dolphin);
-                        gotoxy(24, 22);
-                        printf("│");
-                        gotoxy(2, 23);
-                        printf("│  가격 : 4500원      │\n");
-                        gotoxy(2, 24);
-                        printf("└─────────────────────┘\n");
-
-                        gotoxy(28, 19);
-                        printf("┌─────────────────────┐\n");
-                        gotoxy(28, 20);
-                        printf("│  고래               │\n");
-                        gotoxy(28, 21);
-                        printf("│                     │\n");
-                        gotoxy(28, 22);
-                        printf("│  수량 : %d개\n", whale);
-                        gotoxy(50, 22);
-                        printf("│");
-                        gotoxy(28, 23);
-                        printf("│  가격 : 4500원      │\n");
-                        gotoxy(28, 24);
-                        printf("└─────────────────────┘\n");
-
-                        gotoxy(80, 3);
-                        printf("┌─────────────────────┐\n");
-                        gotoxy(80, 4);
-                        printf("│  복어               │\n");
-                        gotoxy(80, 5);
-                        printf("│                     │\n");
-                        gotoxy(80, 6);
-                        printf("│  수량 : %d개\n", bokuh);
-                        gotoxy(102, 6);
-                        printf("│");
-                        gotoxy(80, 7);
-                        printf("│  가격 : 1000원      │\n");
-                        gotoxy(80, 8);
-                        printf("└─────────────────────┘\n");
-
-                        gotoxy(80, 11);
-                        printf("┌─────────────────────┐\n");
-                        gotoxy(80, 12);
-                        printf("│  잉어               │\n");
-                        gotoxy(80, 13);
-                        printf("│                     │\n");
-                        gotoxy(80, 14);
-                        printf("│  수량 : %d개\n", inguh);
-                        gotoxy(102, 14);
-                        printf("│");
-                        gotoxy(80, 15);
-                        printf("│  가격 : 1000원      │\n");
-                        gotoxy(80, 16);
-                        printf("└─────────────────────┘\n");
-
                         gotoxy(13, 9);
                         x = 13; // +11
                         y = 9;
                         printf("^");
 
                         while (1) {
+                            gotoxy(2, 1);
+                            printf("인벤토리");
+
+                            gotoxy(2, 3);
+                            printf("┌─────────────────────┐\n");
+                            gotoxy(2, 4);
+                            printf("│  텅 빈 양동이       │\n");
+                            gotoxy(2, 5);
+                            printf("│                     │\n");
+                            gotoxy(2, 6);
+                            printf("│  수량 : %d개\n", can);
+                            gotoxy(24, 6);
+                            printf("│");
+                            gotoxy(2, 7);
+                            printf("│  가격 : 1000원      │\n");
+                            gotoxy(2, 8);
+                            printf("└─────────────────────┘\n");
+
+                            gotoxy(28, 3);
+                            printf("┌─────────────────────┐\n");
+                            gotoxy(28, 4);
+                            printf("│  버려진 신발        │\n");
+                            gotoxy(28, 5);
+                            printf("│                     │\n");
+                            gotoxy(28, 6);
+                            printf("│  수량 : %d개\n", shoes);
+                            gotoxy(50, 6);
+                            printf("│");
+                            gotoxy(28, 7);
+                            printf("│  가격 : 1000원      │\n");
+                            gotoxy(28, 8);
+                            printf("└─────────────────────┘\n");
+
+                            gotoxy(54, 3);
+                            printf("┌─────────────────────┐\n");
+                            gotoxy(54, 4);
+                            printf("│  미역 줄기          │\n");
+                            gotoxy(54, 5);
+                            printf("│                     │\n");
+                            gotoxy(54, 6);
+                            printf("│  수량 : %d개\n", seaweed);
+                            gotoxy(76, 6);
+                            printf("│");
+                            gotoxy(54, 7);
+                            printf("│  가격 : 1000원      │\n");
+                            gotoxy(54, 8);
+                            printf("└─────────────────────┘\n");
+
+                            //두번째 줄
+
+                            gotoxy(2, 11);
+                            printf("┌─────────────────────┐\n");
+                            gotoxy(2, 12);
+                            printf("│  대구               │\n");
+                            gotoxy(2, 13);
+                            printf("│                     │\n");
+                            gotoxy(2, 14);
+                            printf("│  수량 : %d개\n", daegu);
+                            gotoxy(24, 14);
+                            printf("│");
+                            gotoxy(2, 15);
+                            printf("│  가격 : 4500원      │\n");
+                            gotoxy(2, 16);
+                            printf("└─────────────────────┘\n");
+
+                            gotoxy(28, 11);
+                            printf("┌─────────────────────┐\n");
+                            gotoxy(28, 12);
+                            printf("│  연어               │\n");
+                            gotoxy(28, 13);
+                            printf("│                     │\n");
+                            gotoxy(28, 14);
+                            printf("│  수량 : %d개\n", yeonuh);
+                            gotoxy(50, 14);
+                            printf("│");
+                            gotoxy(28, 15);
+                            printf("│  가격 : 4500원      │\n");
+                            gotoxy(28, 16);
+                            printf("└─────────────────────┘\n");
+
+                            gotoxy(54, 11);
+                            printf("┌─────────────────────┐\n");
+                            gotoxy(54, 12);
+                            printf("│  흰동가리           │\n");
+                            gotoxy(54, 13);
+                            printf("│                     │\n");
+                            gotoxy(54, 14);
+                            printf("│  수량 : %d개\n", nimo);
+                            gotoxy(76, 14);
+                            printf("│");
+                            gotoxy(54, 15);
+                            printf("│  가격 : 4500원      │\n");
+                            gotoxy(54, 16);
+                            printf("└─────────────────────┘\n");
+
+                            // 세번째 줄
+
+                            gotoxy(2, 19);
+                            printf("┌─────────────────────┐\n");
+                            gotoxy(2, 20);
+                            printf("│  돌고래             │\n");
+                            gotoxy(2, 21);
+                            printf("│                     │\n");
+                            gotoxy(2, 22);
+                            printf("│  수량 : %d개\n", dolphin);
+                            gotoxy(24, 22);
+                            printf("│");
+                            gotoxy(2, 23);
+                            printf("│  가격 : 4500원      │\n");
+                            gotoxy(2, 24);
+                            printf("└─────────────────────┘\n");
+
+                            gotoxy(28, 19);
+                            printf("┌─────────────────────┐\n");
+                            gotoxy(28, 20);
+                            printf("│  고래               │\n");
+                            gotoxy(28, 21);
+                            printf("│                     │\n");
+                            gotoxy(28, 22);
+                            printf("│  수량 : %d개\n", whale);
+                            gotoxy(50, 22);
+                            printf("│");
+                            gotoxy(28, 23);
+                            printf("│  가격 : 4500원      │\n");
+                            gotoxy(28, 24);
+                            printf("└─────────────────────┘\n");
+
+                            gotoxy(80, 3);
+                            printf("┌─────────────────────┐\n");
+                            gotoxy(80, 4);
+                            printf("│  복어               │\n");
+                            gotoxy(80, 5);
+                            printf("│                     │\n");
+                            gotoxy(80, 6);
+                            printf("│  수량 : %d개\n", bokuh);
+                            gotoxy(102, 6);
+                            printf("│");
+                            gotoxy(80, 7);
+                            printf("│  가격 : 1000원      │\n");
+                            gotoxy(80, 8);
+                            printf("└─────────────────────┘\n");
+
+                            gotoxy(80, 11);
+                            printf("┌─────────────────────┐\n");
+                            gotoxy(80, 12);
+                            printf("│  잉어               │\n");
+                            gotoxy(80, 13);
+                            printf("│                     │\n");
+                            gotoxy(80, 14);
+                            printf("│  수량 : %d개\n", inguh);
+                            gotoxy(102, 14);
+                            printf("│");
+                            gotoxy(80, 15);
+                            printf("│  가격 : 1000원      │\n");
+                            gotoxy(80, 16);
+                            printf("└─────────────────────┘\n");
                             if (_kbhit()) {
                                 exit = _getch();
                                 if (exit == BACKSPACE) {
@@ -1321,9 +1362,16 @@ int main() {
                                     break;
                                 }
                                 else if (exit == ENTER) {
-                                    
-                                    break;
-
+                                    if (x == 13 && y == 9 && can >= 1) {
+                                        can--;
+                                    }
+                                    if (x == 39 && y == 9 && shoes >= 1) {
+                                        shoes--;
+                                    }
+                                    if (x == 65 && y == 9 && seaweed >= 1) {
+                                        seaweed--;
+                                    }
+                                    continue;
                                 }
                                 else if (exit == ARROW) {
                                     exit = _getch();
@@ -1442,6 +1490,39 @@ int main() {
                                                 gotoxy(x, y);
                                                 printf("^");
                                             }
+                                        }
+                                        break;
+
+                                    case DOWN:
+                                        if (y == 9) {
+                                            gotoxy(x, y);
+                                            printf("  ");
+                                            y = 17;
+                                            gotoxy(x, y);
+                                            printf("^");
+                                        }
+                                        else if (y == 17) {
+                                            if (x == 65 || x == 91) {
+                                                gotoxy(x, y);
+                                                printf("  ");
+                                                y = 9;
+                                                gotoxy(x, y);
+                                                printf("^");
+                                            }
+                                            else {
+                                                gotoxy(x, y);
+                                                printf("  ");
+                                                y = 25;
+                                                gotoxy(x, y);
+                                                printf("^");
+                                            }
+                                        }
+                                        else if (y == 25) {
+                                            gotoxy(x, y);
+                                            printf("  ");
+                                            y = 9;
+                                            gotoxy(x, y);
+                                            printf("^");
                                         }
                                     }
                                 }
@@ -1643,6 +1724,37 @@ int main() {
                                         Sleep(2500);
                                     }
                                     else {
+                                        y = 6;
+                                        gotoxy(38, y);
+                                        for (int i = 0; i < 17; i++) {
+                                            for (int j = 0; j < 18; j++) {
+                                                if (bad[i][j] == 0)
+                                                    printf("  ");
+                                                else if (bad[i][j] == 1) {
+                                                    SET_COLOR(FOREGROUND, 66, 35, 17);
+                                                    printf("▒▒");
+                                                }
+                                                else if (bad[i][j] == 2) {
+                                                    SET_COLOR(FOREGROUND, 213, 153, 20);
+                                                    printf("▒▒");
+                                                }
+                                                else if (bad[i][j] == 3) {
+                                                    SET_COLOR(FOREGROUND, 254, 211, 8);
+                                                    printf("▒▒");
+                                                }
+                                                else if (bad[i][j] == 4) {
+                                                    SET_COLOR(FOREGROUND, 65, 143, 246);
+                                                    printf("▒▒");
+                                                }
+                                                else if (bad[i][j] == 5) {
+                                                    SET_COLOR(FOREGROUND, 255, 255, 255);
+                                                    printf("▒▒");
+                                                }
+                                            }
+                                            y += 1;
+                                            gotoxy(38, y);
+                                        }
+
                                         gotoxy(42, 23);
                                         printf("아깝네요.. 다음 기회를 노려보세요!!");
                                         money -= betting;
