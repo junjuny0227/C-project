@@ -37,12 +37,7 @@ void gotoxy(int x, int y) {
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
 
-int main() {
-    SetConsoleTitle(TEXT("GSM 낚시왕"));
-    nocursorview();
-    setcolor(15);
-
-    int npc[16][16] = { // 김낚푸
+int npc[16][16] = { // 김낚푸
         0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,
         0,0,0,0,1,2,2,2,2,2,2,1,0,0,0,0,
         0,0,0,1,2,2,2,2,2,2,2,2,1,0,0,0,
@@ -61,7 +56,7 @@ int main() {
         0,0,0,0,1,6,1,1,1,6,1,0,0,0,0,0,
     };
 
-    int say[16][16] = { // 말풍선
+int say[16][16] = { // 말풍선
         0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,
         0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,
         0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,
@@ -80,7 +75,7 @@ int main() {
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
 
-    int box[8][12] = {
+int box[8][12] = {
         1,1,1,1,1,1,1,1,1,1,1,1,
         1,0,0,0,0,0,0,0,0,0,0,1,
         1,0,0,0,0,0,0,0,0,0,0,1,
@@ -91,7 +86,7 @@ int main() {
         1,1,1,1,1,1,1,1,1,1,1,1
     };
 
-    int rod[16][16] = { // 낚시대
+int rod[16][16] = { // 낚시대
         0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,
         0,0,0,0,0,0,0,0,0,0,1,3,5,0,0,0,
         0,0,0,0,0,0,0,0,0,1,3,4,5,0,0,0,
@@ -109,8 +104,8 @@ int main() {
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
-    
-    int coin[16][16] = {
+
+int coin[16][16] = {
         0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,
         0,0,0,0,1,1,2,2,2,2,1,1,0,0,0,0,
         0,0,0,1,2,2,3,4,4,4,2,2,1,0,0,0,
@@ -129,7 +124,7 @@ int main() {
         0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0
     };
 
-    int money_bag[22][22] = {
+int money_bag[22][22] = {
         0,0,0,0,0,0,0,0,1,2,2,2,2,0,0,0,0,0,0,0,0,0,
         0,0,0,0,0,0,1,1,5,5,6,6,6,2,2,0,0,0,0,0,0,0,
         0,0,0,0,0,1,5,5,2,2,2,2,2,6,6,2,0,0,0,0,0,0,
@@ -154,7 +149,7 @@ int main() {
         0,0,0,0,0,1,1,1,1,1,2,2,2,2,0,0,0,0,0,0,0,0
     };
 
-    int bad[18][18] = {
+int bad[18][18] = {
         0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,
         0,1,1,1,1,0,0,0,1,2,2,2,2,2,2,1,0,0,
         1,4,4,4,4,1,1,1,2,3,3,3,3,3,3,1,0,0,
@@ -175,7 +170,7 @@ int main() {
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
 
-    int clap[16][16] = {
+int clap[16][16] = {
        0,0,0,1,1,0,4,5,0,0,0,0,0,0,0,0,
        0,1,1,2,4,5,3,4,5,0,0,0,0,0,0,0,
        0,2,1,1,2,4,5,3,4,5,0,3,5,0,0,0,
@@ -194,7 +189,7 @@ int main() {
        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
 
-    int t_1[16][16] = { // 신발
+int t_1[16][16] = { // 신발
         1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,
         1,3,3,2,0,0,0,0,0,0,0,0,0,0,0,0,
         1,3,4,2,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -213,7 +208,7 @@ int main() {
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
     };
 
-    int t_2[16][16] = { // 깡통
+int t_2[16][16] = { // 깡통
        0,0,0,1,1,1,2,2,2,0,0,0,0,0,0,0,
        0,1,1,3,4,4,4,4,5,2,2,0,0,0,0,0,
        1,2,2,3,4,4,4,4,5,5,5,1,0,0,0,0,
@@ -232,7 +227,7 @@ int main() {
        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
 
-    int t_3[16][16] = { // 미역
+int t_3[16][16] = { // 미역
         0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,
         0,0,0,0,0,0,0,0,0,0,2,2,2,1,0,0,
         0,0,0,0,0,0,0,2,2,2,6,6,2,1,0,0,
@@ -251,7 +246,7 @@ int main() {
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
 
-    int f_1[16][16] = { // 대구
+int f_1[16][16] = { // 대구
         0,0,0,0,0,0,0,0,0,2,3,0,0,0,0,0,
         0,0,0,0,0,0,0,0,0,1,1,4,0,0,0,0,
         0,0,0,0,0,0,0,0,1,1,2,3,4,0,0,0,
@@ -270,7 +265,7 @@ int main() {
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
     };
 
-    int f_2[16][16] = { // 연어
+int f_2[16][16] = { // 연어
         0,0,0,0,0,0,0,0,0,3,3,0,0,0,0,0,
         0,0,0,0,0,0,0,0,0,3,1,3,0,0,0,0,
         0,0,0,0,0,0,0,0,3,1,1,2,4,0,0,0,
@@ -289,7 +284,7 @@ int main() {
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
 
-    int f_3[16][16] = { // 니모
+int f_3[16][16] = { // 니모
         0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,
         0,0,0,0,0,0,0,0,0,1,3,1,0,0,0,0,
         0,0,0,0,0,0,0,0,1,3,3,4,1,0,0,0,
@@ -308,7 +303,7 @@ int main() {
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
 
-    int f_4[16][16] = { // 복어
+int f_4[16][16] = { // 복어
         0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,
         0,0,0,0,0,0,4,3,6,3,4,0,0,1,0,0,
         0,0,0,0,0,3,6,10,10,4,3,3,6,1,1,0,
@@ -327,7 +322,7 @@ int main() {
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
 
-    int f_5[20][25] = {
+int f_5[20][25] = {
        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,
        0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,1,0,0,0,0,0,0,0,0,
        0,0,0,0,0,0,0,1,1,1,1,1,0,0,1,2,6,1,0,0,0,0,0,0,0,
@@ -350,7 +345,7 @@ int main() {
        0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
 
-    int f_6[20][20] = { // 돌고래
+int f_6[20][20] = { // 돌고래
         0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,
         0,0,0,0,0,0,0,0,5,2,2,5,0,0,0,0,0,0,0,0,
         0,0,0,0,0,0,5,5,2,2,3,5,0,0,0,0,0,0,0,0,
@@ -373,7 +368,7 @@ int main() {
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
 
-    int f_7[23][30] = {
+int f_7[23][30] = {
        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,1,1,1,
        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,1,1,1,2,2,1,
        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,2,2,1,0,
@@ -399,10 +394,16 @@ int main() {
        0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     }; 
 
+int trash_r = 40, normal_r = 70, middle_r = 90, big_r = 97, max = 99;
+
+int main() {
+    SetConsoleTitle(TEXT("GSM 낚시왕"));
+    nocursorview();
+    setcolor(15);
+
     int x = 0, y = 0, length = 0, random = 0, f_ran = 0, exit = 0, control = 0;
     int can = 0, shoes = 0, seaweed = 0, daegu = 0, yeonuh = 0, nimo = 0, bokuh = 0, inguh = 0, dolphin = 0, whale = 0;
     int betting = 0, answer = 0, coin_ran = 0, fishing = 0, money = 1234567890;
-    int trash_r = 40, normal_r = 70, middle_r = 90, big_r = 97, max = 99;
     /*쓰레기40 일반30 중간20 대7 특대2*/
 
     srand(time(NULL));
@@ -690,18 +691,11 @@ int main() {
                             y += 1;
                             gotoxy(47, y);
                         }
-                        gotoxy(55, 23); 
-                        printf("낚시중");
-                        Sleep(750);
-                        gotoxy(55, 23);
-                        printf("낚시중.");
-                        Sleep(750);
-                        gotoxy(55, 23);
-                        printf("낚시중..");
-                        Sleep(750);
-                        gotoxy(55, 23);
-                        printf("낚시중...");
-                        Sleep(750);
+                        for (int i = 0; i < 4; i++) {
+                            gotoxy(55, 23);
+                            printf("낚시중%.*s", i, "...");
+                            Sleep(750);
+                        }
 
                         if (random < trash_r) { /*쓰레기40 일반30 중간20 대7 특대2*/
                             system("cls");
@@ -1193,9 +1187,9 @@ int main() {
                     else if (x == 49) {
                         system("cls");
 
-                        gotoxy(13, 9);
                         x = 13; // +11
                         y = 9;
+                        gotoxy(x, y);
                         printf("^");
 
                         while (1) {
@@ -1355,6 +1349,7 @@ int main() {
                             printf("│  가격 : 1000원      │\n");
                             gotoxy(80, 16);
                             printf("└─────────────────────┘\n");
+
                             if (_kbhit()) {
                                 exit = _getch();
                                 if (exit == BACKSPACE) {
@@ -1362,15 +1357,70 @@ int main() {
                                     break;
                                 }
                                 else if (exit == ENTER) {
-                                    if (x == 13 && y == 9 && can >= 1) {
-                                        can--;
+                                    if (y == 9) {
+                                        switch (x) {
+                                        case 13:
+                                            if (can >= 1) {
+                                                can--;
+                                            }
+                                            break;
+                                        case 39:
+                                            if (shoes >= 1) {
+                                                shoes--;
+                                            }
+                                            break;
+                                        case 65:
+                                            if (seaweed >= 1) {
+                                                seaweed--;
+                                            }
+                                            break;
+                                        case 91:
+                                            if (bokuh >= 1) {
+                                                bokuh--;
+                                            }
+                                            break;
+                                        }
                                     }
-                                    if (x == 39 && y == 9 && shoes >= 1) {
-                                        shoes--;
+                                    else if (y == 17) {
+                                        switch (x) {
+                                        case 13:
+                                            if (daegu >= 1) {
+                                                daegu--;
+                                            }
+                                            break;
+                                        case 39:
+                                            if (yeonuh >= 1) {
+                                                yeonuh--;
+                                            }
+                                            break;
+                                        case 65:
+                                            if (nimo >= 1) {
+                                                nimo--;
+                                            }
+                                            break;
+                                        case 91:
+                                            if (inguh >= 1) {
+                                                inguh--;
+                                            }
+                                            break;
+                                        }
                                     }
-                                    if (x == 65 && y == 9 && seaweed >= 1) {
-                                        seaweed--;
+                                    else if (y == 25) {
+                                        switch (x) {
+                                        case 13:
+                                            if (dolphin >= 1) {
+                                                dolphin--;
+                                            }
+                                            break;
+                                        case 39:
+                                            if (whale >= 1) {
+                                                whale--;
+                                            }
+                                            break;
+                                        }
                                     }
+
+
                                     continue;
                                 }
                                 else if (exit == ARROW) {
@@ -1381,94 +1431,65 @@ int main() {
                                             gotoxy(x, y);
                                             printf("  ");
                                             x = 39;
-                                            gotoxy(x, y);
-                                            printf("^");
                                         }
                                         else if (x == 39) {
+                                            gotoxy(x, y);
+                                            printf("  ");
                                             if (y == 25) {
-                                                gotoxy(x, y);
-                                                printf("  ");
                                                 x = 13;
                                                 y = 9;
-                                                gotoxy(x, y);
-                                                printf("^");
                                             }
                                             else {
-                                                gotoxy(x, y);
-                                                printf("  ");
                                                 x = 65;
-                                                gotoxy(x, y);
-                                                printf("^");
                                             }
                                         }
                                         else if (x == 65) {
                                             gotoxy(x, y);
                                             printf("  ");
                                             x = 91;
-                                            gotoxy(x, y);
-                                            printf("^");
                                         }
                                         else if (x == 91) {
                                             gotoxy(x, y);
                                             printf("  ");
                                             y += 8;
                                             x = 13;
-                                            gotoxy(x, y);
-                                            printf("^");
                                         }
+                                        gotoxy(x, y);
+                                        printf("^");
                                         break;
 
                                     case LEFT:
-                                        if (x == 91) {
+                                        if (x == 91 || x == 65 || x == 39 || x == 13) {
                                             gotoxy(x, y);
                                             printf("  "); // 기존 위치 지우기
+                                        }
+                                        switch (x) {
+                                        case 91:
                                             x = 65;
-                                            gotoxy(x, y);
-                                            printf("^"); // 새로운 위치 표시
-                                        }
-                                        else if (x == 65) {
-                                            gotoxy(x, y);
-                                            printf("  ");
+                                            break;
+                                        case 65:
                                             x = 39;
-                                            gotoxy(x, y);
-                                            printf("^");
-                                        }
-                                        else if (x == 39) {
-                                            gotoxy(x, y);
-                                            printf("  ");
+                                            break;
+                                        case 39:
                                             x = 13;
-                                            gotoxy(x, y);
-                                            printf("^");
-                                        }
-                                        else if (x == 13) {
+                                            break;
+                                        case 13:
                                             if (y == 9) {
-                                                gotoxy(x, y);
-                                                printf("  ");
                                                 y = 25;
                                                 x = 39;
-                                                gotoxy(x, y);
-                                                printf("^");
                                             }
                                             else {
-                                                gotoxy(x, y);
-                                                printf("  ");
                                                 y -= 8;
                                                 x = 91;
-                                                gotoxy(x, y);
-                                                printf("^");
                                             }
+                                            break;
                                         }
+                                        gotoxy(x, y);
+                                        printf("^"); // 새로운 위치 표시
                                         break;
 
                                     case UP:
-                                        if (y == 25) {
-                                            gotoxy(x, y);
-                                            printf("  ");
-                                            y -= 8;
-                                            gotoxy(x, y);
-                                            printf("^");
-                                        }
-                                        else if (y == 17) {
+                                        if (y == 25 || y == 17) {
                                             gotoxy(x, y);
                                             printf("  ");
                                             y -= 8;
@@ -1476,54 +1497,41 @@ int main() {
                                             printf("^");
                                         }
                                         else if (y == 9) {
+                                            gotoxy(x, y);
+                                            printf("  ");
                                             if (x == 65 || x == 91) {
-                                                gotoxy(x, y);
-                                                printf("  ");
                                                 y = 17;
-                                                gotoxy(x, y);
-                                                printf("^");
                                             }
                                             else {
-                                                gotoxy(x, y);
-                                                printf("  ");
                                                 y = 25;
-                                                gotoxy(x, y);
-                                                printf("^");
                                             }
+                                            gotoxy(x, y);
+                                            printf("^");
                                         }
                                         break;
 
                                     case DOWN:
+                                        gotoxy(x, y);
+                                        printf("  ");
+
                                         if (y == 9) {
-                                            gotoxy(x, y);
-                                            printf("  ");
                                             y = 17;
-                                            gotoxy(x, y);
-                                            printf("^");
                                         }
                                         else if (y == 17) {
                                             if (x == 65 || x == 91) {
-                                                gotoxy(x, y);
-                                                printf("  ");
                                                 y = 9;
-                                                gotoxy(x, y);
-                                                printf("^");
                                             }
                                             else {
-                                                gotoxy(x, y);
-                                                printf("  ");
                                                 y = 25;
-                                                gotoxy(x, y);
-                                                printf("^");
                                             }
                                         }
                                         else if (y == 25) {
-                                            gotoxy(x, y);
-                                            printf("  ");
                                             y = 9;
-                                            gotoxy(x, y);
-                                            printf("^");
                                         }
+
+                                        gotoxy(x, y);
+                                        printf("^");
+
                                     }
                                 }
                             }
@@ -1602,16 +1610,15 @@ int main() {
                             if (betting < 1000) {
                                 gotoxy(35, 23);
                                 printf("베팅액이 너무 적습니다. 1000원 이상으로 입력해주세요.\n");
-                                Sleep(2500);
-                                continue;
                             }
-
-                            if (betting <= money) {
+                            else if (betting <= money) {
                                 system("cls");
                                 break;
                             }
-                            gotoxy(34, 23);
-                            printf("베팅액이 현재 보유금액보다 많습니다. 다시 입력해주세요.\n");
+                            else {
+                                gotoxy(34, 23);
+                                printf("베팅액이 현재 보유금액보다 많습니다. 다시 입력해주세요.\n");
+                            }
                             Sleep(2500);
                         }
                         system("cls");
@@ -1661,47 +1668,35 @@ int main() {
 
 
                         while (1) {
-                            if (_kbhit()) { // 키보드 입력 감지
+                            if (_kbhit()) {
                                 exit = _getch();
                                 if (exit == BACKSPACE) {
-                                    system("cls"); // 화면 지우기
-                                    break; // 루프 탈출
+                                    system("cls");
+                                    break;
                                 }
                                 else if (exit == ARROW) {
                                     exit = _getch();
                                     switch (exit) {
                                     case RIGHT:
-                                        if (x == 49) {
-                                            gotoxy(x, 24);
-                                            printf("  "); 
-                                            x = 70;
-                                            gotoxy(x, 24);
-                                            printf("^"); 
-                                        }
-                                        else if (x == 70) {
-                                            gotoxy(x, 24);
-                                            printf("  "); 
-                                            x = 49;
-                                            gotoxy(x, 24);
-                                            printf("^");
-                                        }
+                                        gotoxy(x, 24);
+                                        printf("  ");
+
+                                        x = (x == 49) ? 70 : 49;
+
+                                        gotoxy(x, 24);
+                                        printf("^");
+
                                         break;
 
                                     case LEFT:
-                                        if (x == 70) {
-                                            gotoxy(x, 24);
-                                            printf("  "); // 기존 위치 지우기
-                                            x = 49;
-                                            gotoxy(x, 24);
-                                            printf("^"); // 새로운 위치 표시
-                                        }
-                                        else if (x == 49) {
-                                            gotoxy(x, 24);
-                                            printf("  ");
-                                            x = 70;
-                                            gotoxy(x, 24);
-                                            printf("^");
-                                        }
+                                        gotoxy(x, 24);
+                                        printf("  ");
+
+                                        x = (x == 70) ? 49 : 70;
+
+                                        gotoxy(x, 24);
+                                        printf("^");
+
                                         break;
                                     }
                                 }
@@ -1709,12 +1704,7 @@ int main() {
                                     system("cls");
                                     coin_ran = rand() % 2;
 
-                                    if (x == 49) {
-                                        answer = 1;
-                                    }
-                                    else if (x = 70) {
-                                        answer = 0;
-                                    }
+                                    answer = (x == 49) ? 1 : 0;
 
                                     if (coin_ran == answer) {
                                         gotoxy(44, 23);
@@ -1726,6 +1716,7 @@ int main() {
                                     else {
                                         y = 6;
                                         gotoxy(38, y);
+
                                         for (int i = 0; i < 17; i++) {
                                             for (int j = 0; j < 18; j++) {
                                                 if (bad[i][j] == 0)
@@ -1754,17 +1745,14 @@ int main() {
                                             y += 1;
                                             gotoxy(38, y);
                                         }
-
                                         gotoxy(42, 23);
                                         printf("아깝네요.. 다음 기회를 노려보세요!!");
                                         money -= betting;
                                         Sleep(2500);
                                     }
                                     break;
-
                                 }
                             }
-                            Sleep(1);
                         }
                         break;
                     }
@@ -1772,7 +1760,7 @@ int main() {
                 else if (control == ARROW) {
                     control = _getch();
                     switch (control) {
-                    case RIGHT:
+                    case RIGHT:  // 최적화해
                         if (x == 27) {
                             gotoxy(x, 27);
                             printf("  ");
@@ -1867,6 +1855,7 @@ int main() {
                             gotoxy(88, 15);
                             printf("└──────────────────────────────┘\n");
                         }
+
                         break;
                     case LEFT:
                         if (x == 49) {
@@ -1904,8 +1893,10 @@ int main() {
                             gotoxy(x, 27);
                             printf("^");
 
-                            gotoxy(88, 9);
-                            printf("                                \n");
+                            for (int i = 9; i <= 15; i++) {
+                                gotoxy(88, i);
+                                printf("                                \n");
+                            }
                             gotoxy(88, 10);
                             printf("┌──────────────────────────────┐\n");
                             gotoxy(88, 11);
@@ -1916,8 +1907,6 @@ int main() {
                             printf("│                              │\n");
                             gotoxy(88, 14);
                             printf("└──────────────────────────────┘\n");
-                            gotoxy(88, 15);
-                            printf("                                \n");
                         }
                         else if (x == 91) {
                             gotoxy(x, 27);
@@ -1926,8 +1915,10 @@ int main() {
                             gotoxy(x, 27);
                             printf("^");
 
-                            gotoxy(88, 9);
-                            printf("                                \n");
+                            for (int i = 9; i <= 15; i++) {
+                                gotoxy(88, i);
+                                printf("                                \n");
+                            }
                             gotoxy(88, 10);
                             printf("┌──────────────────────────────┐\n");
                             gotoxy(88, 11);
@@ -1938,8 +1929,6 @@ int main() {
                             printf("│                              │\n");
                             gotoxy(88, 14);
                             printf("└──────────────────────────────┘\n");
-                            gotoxy(88, 15);
-                            printf("                                \n");
                         }
                         else if (x == 27) {
                             gotoxy(x, 27);
@@ -1948,8 +1937,10 @@ int main() {
                             gotoxy(x, 27);
                             printf("^");
 
-                            gotoxy(88, 9);
-                            printf("                                \n");
+                            for (int i = 9; i <= 15; i++) {
+                                gotoxy(88, i);
+                                printf("                                \n");
+                            }
                             gotoxy(88, 10);
                             printf("┌──────────────────────────────┐\n");
                             gotoxy(88, 11);
@@ -1960,9 +1951,8 @@ int main() {
                             printf("│                              │\n");
                             gotoxy(88, 14);
                             printf("└──────────────────────────────┘\n");
-                            gotoxy(88, 15);
-                            printf("                                \n");
                         }
+
                         break;
                     }
                 }
