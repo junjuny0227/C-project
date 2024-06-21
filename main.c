@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <Windows.h>
 #include <conio.h>
 #include <time.h>
@@ -403,7 +404,7 @@ int main() {
 
     int x = 0, y = 0, length = 0, random = 0, f_ran = 0, exit = 0, control = 0;
     int can = 0, shoes = 0, seaweed = 0, daegu = 0, yeonuh = 0, nimo = 0, bokuh = 0, inguh = 0, dolphin = 0, whale = 0;
-    int betting = 0, answer = 0, coin_ran = 0, fishing = 0, money = 1234567890;
+    int betting = 0, answer = 0, coin_ran = 0, fishing = 0, money = 0;
     /*쓰레기40 일반30 중간20 대7 특대2*/
 
     srand(time(NULL));
@@ -476,7 +477,7 @@ int main() {
     }
     setcolor(15);
 
-    gotoxy(0, 6);
+    gotoxy(0, 7);
     for (int i = 0; i < 16; i++) {
         for (int j = 0; j < 16; j++) {
             if (npc[i][j] == 0) // 빈공간
@@ -616,8 +617,8 @@ int main() {
         gotoxy(38, 6);
         printf("내집마련 하고만다.");
 
-        gotoxy(104, 0);
-        printf("잔액: %10d", money);
+        gotoxy(102, 1);
+        printf("잔액: %10d원", money);
         gotoxy(0, 23);
         printf("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
         gotoxy(24, 26);
@@ -1180,9 +1181,9 @@ int main() {
                             setcolor(15);
                             gotoxy(54, 23);
                             printf("고래를 낚았다!!!");
-                            Sleep(2500);
-                            break;
                         }
+                        Sleep(2500);
+                        break;
                     }
                     else if (x == 49) {
                         system("cls");
@@ -1195,6 +1196,8 @@ int main() {
                         while (1) {
                             gotoxy(2, 1);
                             printf("인벤토리");
+                            gotoxy(102, 1);
+                            printf("잔액: %10d원", money);
 
                             gotoxy(2, 3);
                             printf("┌─────────────────────┐\n");
@@ -1207,7 +1210,7 @@ int main() {
                             gotoxy(24, 6);
                             printf("│");
                             gotoxy(2, 7);
-                            printf("│  가격 : 1000원      │\n");
+                            printf("│  가격 : 11000원     │\n");
                             gotoxy(2, 8);
                             printf("└─────────────────────┘\n");
 
@@ -1222,7 +1225,7 @@ int main() {
                             gotoxy(50, 6);
                             printf("│");
                             gotoxy(28, 7);
-                            printf("│  가격 : 1000원      │\n");
+                            printf("│  가격 : 9000원      │\n");
                             gotoxy(28, 8);
                             printf("└─────────────────────┘\n");
 
@@ -1237,7 +1240,7 @@ int main() {
                             gotoxy(76, 6);
                             printf("│");
                             gotoxy(54, 7);
-                            printf("│  가격 : 1000원      │\n");
+                            printf("│  가격 : 10000원     │\n");
                             gotoxy(54, 8);
                             printf("└─────────────────────┘\n");
 
@@ -1254,7 +1257,7 @@ int main() {
                             gotoxy(24, 14);
                             printf("│");
                             gotoxy(2, 15);
-                            printf("│  가격 : 4500원      │\n");
+                            printf("│  가격 : 30000원     │\n");
                             gotoxy(2, 16);
                             printf("└─────────────────────┘\n");
 
@@ -1269,7 +1272,7 @@ int main() {
                             gotoxy(50, 14);
                             printf("│");
                             gotoxy(28, 15);
-                            printf("│  가격 : 4500원      │\n");
+                            printf("│  가격 : 31000원     │\n");
                             gotoxy(28, 16);
                             printf("└─────────────────────┘\n");
 
@@ -1284,7 +1287,7 @@ int main() {
                             gotoxy(76, 14);
                             printf("│");
                             gotoxy(54, 15);
-                            printf("│  가격 : 4500원      │\n");
+                            printf("│  가격 : 29000원     │\n");
                             gotoxy(54, 16);
                             printf("└─────────────────────┘\n");
 
@@ -1301,7 +1304,7 @@ int main() {
                             gotoxy(24, 22);
                             printf("│");
                             gotoxy(2, 23);
-                            printf("│  가격 : 4500원      │\n");
+                            printf("│  가격 : 830000원    │\n");
                             gotoxy(2, 24);
                             printf("└─────────────────────┘\n");
 
@@ -1316,7 +1319,7 @@ int main() {
                             gotoxy(50, 22);
                             printf("│");
                             gotoxy(28, 23);
-                            printf("│  가격 : 4500원      │\n");
+                            printf("│  가격 : 1500000원   │\n");
                             gotoxy(28, 24);
                             printf("└─────────────────────┘\n");
 
@@ -1331,7 +1334,7 @@ int main() {
                             gotoxy(102, 6);
                             printf("│");
                             gotoxy(80, 7);
-                            printf("│  가격 : 1000원      │\n");
+                            printf("│  가격 : 115000원    │\n");
                             gotoxy(80, 8);
                             printf("└─────────────────────┘\n");
 
@@ -1346,7 +1349,7 @@ int main() {
                             gotoxy(102, 14);
                             printf("│");
                             gotoxy(80, 15);
-                            printf("│  가격 : 1000원      │\n");
+                            printf("│  가격 : 100000원    │\n");
                             gotoxy(80, 16);
                             printf("└─────────────────────┘\n");
 
@@ -1362,21 +1365,25 @@ int main() {
                                         case 13:
                                             if (can >= 1) {
                                                 can--;
+                                                money += 11000;
                                             }
                                             break;
                                         case 39:
                                             if (shoes >= 1) {
                                                 shoes--;
+                                                money += 9000;
                                             }
                                             break;
                                         case 65:
                                             if (seaweed >= 1) {
                                                 seaweed--;
+                                                money += 10000;
                                             }
                                             break;
                                         case 91:
                                             if (bokuh >= 1) {
                                                 bokuh--;
+                                                money += 115000;
                                             }
                                             break;
                                         }
@@ -1386,21 +1393,25 @@ int main() {
                                         case 13:
                                             if (daegu >= 1) {
                                                 daegu--;
+                                                money += 30000;
                                             }
                                             break;
                                         case 39:
                                             if (yeonuh >= 1) {
                                                 yeonuh--;
+                                                money += 31000;
                                             }
                                             break;
                                         case 65:
                                             if (nimo >= 1) {
                                                 nimo--;
+                                                money += 29000;
                                             }
                                             break;
                                         case 91:
                                             if (inguh >= 1) {
                                                 inguh--;
+                                                money += 100000;
                                             }
                                             break;
                                         }
@@ -1410,17 +1421,17 @@ int main() {
                                         case 13:
                                             if (dolphin >= 1) {
                                                 dolphin--;
+                                                money += 830000;
                                             }
                                             break;
                                         case 39:
                                             if (whale >= 1) {
                                                 whale--;
+                                                money += 1500000;
                                             }
                                             break;
                                         }
                                     }
-
-
                                     continue;
                                 }
                                 else if (exit == ARROW) {
@@ -1543,9 +1554,66 @@ int main() {
                         system("cls");
                         
                         while (1) {
+                            gotoxy(102, 1);
+                            printf("잔액: %10d원", money);
+
+                            gotoxy(13, 3);
+                            printf("┌────────────────────────────┐   ┌────────────────────────────┐   ┌────────────────────────────┐\n");
+                            gotoxy(13, 4);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 5);
+                            printf("│           낚싯대           │   │           낚싯줄           │   │             릴             │\n");
+                            gotoxy(13, 6);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 7);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 8);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 9);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 10);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 11);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 12);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 13);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 14);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 15);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 16);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 17);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 18);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 19);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 20);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 21);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 22);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 23);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 24);
+                            printf("│                            │   │                            │   │                            │\n");
+                            gotoxy(13, 25);
+                            printf("└────────────────────────────┘   └────────────────────────────┘   └────────────────────────────┘\n");
+
+                            gotoxy(28, 26);
+                            printf("^");
+
                             if (_kbhit()) {
                                 exit = _getch();
-                                if (exit == BACKSPACE) {
+                                if (exit == ENTER) {
+                                    system("cls");
+                                    break;
+                                }
+                                else if (exit == BACKSPACE) {
                                     system("cls");
                                     break;
                                 }
