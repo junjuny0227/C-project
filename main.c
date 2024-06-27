@@ -51,7 +51,7 @@ void print_store();
 void print_buy();
 void print_sell();
 void print_betting();
-void print_chance();
+void print_chance(int x, int y);
 
 int npc[16][16] = { // 김낚푸
         0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,
@@ -399,7 +399,7 @@ int f_7[23][30] = {
        0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     }; 
 
-int x = 0, y = 0; level = 0;
+int x = 0, y = 0; level = 0, cost = 0;
 int trash_r = 40, normal_r = 70, middle_r = 90, big_r = 97, max = 100;
 int can = 0, shoes = 0, seaweed = 0, daegu = 0, yeonuh = 0, nimo = 0, bokuh = 0, inguh = 0, dolphin = 0, whale = 0;
 
@@ -557,7 +557,7 @@ int main() {
         gotoxy(x, 27);
         printf("^");
 
-        print_chance();
+        print_chance(88, 9);
 
         while (1) {
             if (_kbhit()) {
@@ -858,10 +858,39 @@ int main() {
                     else if (x == 71) {
                         system("cls");
                         
+
+                        gotoxy(102, 1);
+                        printf("잔액: %9d원", money);
+
+                        print_rod(8, 8);
+
+                        gotoxy(65, 9);
+                        printf("현재 강화 : %d강", level);
+
+                        print_chance(39, 13);
+
+                        gotoxy(73, 16);
+                        printf("----->");
+                        gotoxy(72, 21);
+                        setcolor(14);
+                        printf("강화하기");
+                        setcolor(15);
+
+                        if (level == 0) {
+                            cost = 100000;
+                            gotoxy(65, 11);
+                            printf("강화 비용 : %d원", cost);
+                            trash_r = 37;
+                            print_chance(80, 13);
+                        }
+                        if (level == 1) {
+                            cost = 150000;
+                            gotoxy(44, 11);
+                            printf("강화 비용 : %d원", cost);
+                            print_chance(80, 13);
+                        }
+
                         while (1) {
-                            gotoxy(102, 1);
-                            printf("잔액: %9d원", money);
-                            print_rod(10, 8);
 
                             if (_kbhit()) {
                                 control = _getch();
@@ -870,7 +899,7 @@ int main() {
 
 
 
-                                    break;
+                                    continue;
                                 }
                                 else if (control == BACKSPACE) {
                                     system("cls");
@@ -1019,7 +1048,7 @@ int main() {
                             gotoxy(x, 27);
                             printf("^");
 
-                            print_chance();
+                            print_chance(88, 9);
                         }
 
                         break;
@@ -1031,7 +1060,7 @@ int main() {
                             gotoxy(x, 27);
                             printf("^");
 
-                            print_chance();
+                            print_chance(88, 9);
                         }
                         else if (x == 71) {
                             gotoxy(x, 27);
@@ -2010,26 +2039,26 @@ void print_store() {
     printf("└─────────────────────┘\n");
 }
 
-void print_chance() {
-    gotoxy(88, 14);
+void print_chance(int x, int y) {
+    gotoxy(x, y + 5);
     printf("                                \n");
-    gotoxy(88, 9);
+    gotoxy(x, y);
     printf("┌──────────────────────────────┐\n");
-    gotoxy(88, 10);
+    gotoxy(x, y + 1);
     printf("│   꽝 확률 : %d%%              │\n", trash_r);
-    gotoxy(88, 11);
+    gotoxy(x, y + 2);
     printf("│   일반 물고기 확률 : %d%%     │\n", normal_r - trash_r);
-    gotoxy(88, 12);
+    gotoxy(x, y + 3);
     printf("│   중간 물고기 확률 : %d%%     │\n", middle_r - normal_r);
-    gotoxy(88, 13);
+    gotoxy(x, y + 4);
     printf("│   대 물고기 확률 : %d%%\n", big_r - middle_r);
-    gotoxy(119, 13);
+    gotoxy(x + 31, y + 4);
     printf("│");
-    gotoxy(88, 14);
+    gotoxy(x, y + 5);
     printf("│   특대 물고기 확률 : %d%%\n", max - big_r);
-    gotoxy(119, 14);
+    gotoxy(x + 31, y + 5);
     printf("│");
-    gotoxy(88, 15);
+    gotoxy(x, y + 6);
     printf("└──────────────────────────────┘\n");
 }
 
