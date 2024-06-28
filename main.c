@@ -399,7 +399,7 @@ int f_7[23][30] = {
        0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     }; 
 
-int x = 0, y = 0; level = 0, cost = 0;
+int x = 0, y = 0; level = 0, cost = 0, money = 100000000;;
 int trash_r = 40, normal_r = 70, middle_r = 90, big_r = 97, max = 100;
 int can = 0, shoes = 0, seaweed = 0, daegu = 0, yeonuh = 0, nimo = 0, bokuh = 0, inguh = 0, dolphin = 0, whale = 0;
 
@@ -410,7 +410,7 @@ int main() {
     setcolor(15);
 
     int length = 0, random = 0, control = 0;
-    int betting = 0, answer = 0, count = 0, money = 50000;
+    int betting = 0, answer = 0, count = 0;
     /*쓰레기40 일반30 중간20 대7 특대2*/
 
     srand(time(NULL));
@@ -487,7 +487,7 @@ int main() {
         print_npc();
         print_say();
         
-        if (money >= 50000000) {
+        /*if (money >= 50000000) {
             while (1) {
                 gotoxy(38, 7);
                 printf("전세? 아니면 자가?");
@@ -536,7 +536,7 @@ int main() {
                     }
                 }
             }
-        }
+        }*/
 
         gotoxy(38, 7);
         printf("내집마련 하고만다.");
@@ -860,7 +860,6 @@ int main() {
                     else if (x == 71) {
                         system("cls");
                         while (1) {
-
                             gotoxy(102, 1);
                             printf("잔액: %9d원", money);
 
@@ -879,86 +878,18 @@ int main() {
                             setcolor(15);
 
                             switch (level) {
-                            case 0:
-                                cost = 100000;
-                                trash_r = 37;
-                                normal_r = 70;
-                                middle_r = 90;
-                                big_r = 97;
-                                break;
-                            case 1:
-                                cost = 150000;
-                                trash_r = 35;
-                                normal_r = 68;
-                                middle_r = 90;
-                                big_r = 97;
-                                break;
-                            case 2:
-                                cost = 150000;
-                                trash_r = 35;
-                                normal_r = 65;
-                                middle_r = 90;
-                                big_r = 97;
-                                break;
-                            case 3:
-                                cost = 150000;
-                                trash_r = 30;
-                                normal_r = 63;
-                                middle_r = 89;
-                                big_r = 97;
-                                break;
-                            case 4:
-                                cost = 150000;
-                                trash_r = 30;
-                                normal_r = 60;
-                                middle_r = 88;
-                                big_r = 97;
-                                break;
-                            case 5:
-                                cost = 150000;
-                                trash_r = 25;
-                                normal_r = 55;
-                                middle_r = 85;
-                                big_r = 96;
-                                break;
-                            case 6:
-                                cost = 150000;
-                                trash_r = 23;
-                                normal_r = 53;
-                                middle_r = 83;
-                                big_r = 94;
-                                break;
-                            case 7:
-                                cost = 150000;
-                                trash_r = 20;
-                                normal_r = 47;
-                                middle_r = 80;
-                                big_r = 92;
-                                break;
-                            case 8:
-                                cost = 150000;
-                                trash_r = 17;
-                                normal_r = 42;
-                                middle_r = 75;
-                                big_r = 90;
-                                break;
-                            case 9:
-                                cost = 150000;
-                                trash_r = 15;
-                                normal_r = 37;
-                                middle_r = 70;
-                                big_r = 88;
-                                break;
-                            case 10:
-                                cost = 150000;
-                                trash_r = 15;
-                                normal_r = 37;
-                                middle_r = 70;
-                                big_r = 88;
-                                break;
-                            default:
-                                // Handle unexpected levels if necessary
-                                break;
+                            case 0:  cost = 100000;  trash_r = 37; normal_r = 70; middle_r = 90; big_r = 97; break;
+                            case 1:  cost = 150000;  trash_r = 35; normal_r = 68; middle_r = 90; big_r = 97; break;
+                            case 2:  cost = 250000;  trash_r = 35; normal_r = 65; middle_r = 90; big_r = 97; break;
+                            case 3:  cost = 500000;  trash_r = 30; normal_r = 63; middle_r = 89; big_r = 97; break;
+                            case 4:  cost = 1000000; trash_r = 30; normal_r = 60; middle_r = 88; big_r = 97; break;
+                            case 5:  cost = 2000000; trash_r = 25; normal_r = 55; middle_r = 85; big_r = 96; break;
+                            case 6:  cost = 4000000; trash_r = 23; normal_r = 53; middle_r = 83; big_r = 94; break;
+                            case 7:  cost = 6000000; trash_r = 20; normal_r = 47; middle_r = 80; big_r = 92; break;
+                            case 8:  cost = 8000000; trash_r = 17; normal_r = 42; middle_r = 75; big_r = 90; break;
+                            case 9:  cost = 10000000; trash_r = 15; normal_r = 37; middle_r = 70; big_r = 88; break;
+                            case 10: break;
+                            default: break;
                             }
                             gotoxy(65, 10);
                             printf("강화 비용 : %d원", cost);
@@ -972,30 +903,34 @@ int main() {
                                         if (money >= cost) {
                                             money -= cost;
                                             level++;
-                                            break; // 강화를 성공했을 때 루프를 벗어나서 강화창을 다시 출력
+                                            break;
                                         }
                                         else {
                                             gotoxy(72, 21);
                                             printf("                        ");
-                                            gotoxy(72, 21);
+                                            gotoxy(69, 21);
                                             printf("돈이 부족합니다.");
                                             Sleep(2500);
-                                            break; // 돈이 부족할 때 루프를 벗어나서 강화창을 다시 출력
+                                            gotoxy(69, 21);
+                                            printf("                        ");
+                                            break;
                                         }
                                     }
                                     else if (control == BACKSPACE) {
                                         system("cls");
-                                        continue;// 강화 창을 종료하고 메인 루프로 돌아감
+                                        break;
                                     }
                                 }
-                                gotoxy(72, 21);
-                                printf("                            ");
-                                continue;
                             }
-                            x = 71;
-                            setcolor(15);
+                            if (control == BACKSPACE) {
+                                break;
+                            }
                         }
+                        int x = 71;
+                        setcolor(15);
+                        break;
                     }
+
 
 
 
