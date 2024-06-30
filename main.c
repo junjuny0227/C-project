@@ -92,23 +92,23 @@ int say[16][16] = { // 말풍선
         0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
 
-int rod[16][32] = { // 낚시대
-        0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-        0,0,0,0,0,0,0,0,0,0,1,3,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-        0,0,0,0,0,0,0,0,0,1,3,4,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-        0,0,0,0,0,0,0,0,1,3,4,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-        0,0,0,0,0,0,0,1,3,4,5,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-        0,0,0,0,0,0,1,3,4,5,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-        0,0,0,0,0,1,3,4,5,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-        0,0,0,0,1,3,4,5,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-        0,0,0,1,3,4,5,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-        0,0,0,3,4,5,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-        0,0,3,4,1,1,5,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-        0,3,3,5,2,1,5,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-        3,3,5,0,5,5,0,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-        5,5,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+int rod[16][16] = { // 낚시대
+        0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,1,3,5,0,0,0,
+        0,0,0,0,0,0,0,0,0,1,3,4,5,0,0,0,
+        0,0,0,0,0,0,0,0,1,3,4,5,1,0,0,0,
+        0,0,0,0,0,0,0,1,3,4,5,0,1,0,0,0,
+        0,0,0,0,0,0,1,3,4,5,0,0,1,0,0,0,
+        0,0,0,0,0,1,3,4,5,0,0,0,1,0,0,0,
+        0,0,0,0,1,3,4,5,0,0,0,0,1,0,0,0,
+        0,0,0,1,3,4,5,0,0,0,0,0,1,0,0,0,
+        0,0,0,3,4,5,0,0,0,0,0,1,0,0,0,0,
+        0,0,3,4,1,1,5,0,0,0,0,1,0,0,0,0,
+        0,3,3,5,2,1,5,0,0,0,1,0,0,0,0,0,
+        3,3,5,0,5,5,0,0,2,0,2,0,0,0,0,0,
+        5,5,0,0,0,0,0,0,2,2,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     };
 
 int newrod[16][32] = {
@@ -431,7 +431,7 @@ int main() {
     setcolor(15);
 
     int length = 0, random = 0, control = 0;
-     int answer = 0, count = 0;
+    int answer = 0, count = 0, cls_flag = 0;
      long long betting = 0;
     /*쓰레기40 일반30 중간20 대7 특대2*/
 
@@ -577,8 +577,24 @@ int main() {
         printf("미니게임");
 
         gotoxy(x, 27);
+        setcolor(14);
         printf("^");
+        setcolor(15);
 
+        switch (level) {
+        case 0: cost = 100000; trash_r = 40; normal_r = 70; middle_r = 90; big_r = 97; break;
+        case 1: cost = 150000; trash_r = 37; normal_r = 70; middle_r = 90; big_r = 97; break;
+        case 2: cost = 250000; trash_r = 35; normal_r = 68; middle_r = 90; big_r = 97; break;
+        case 3: cost = 500000; trash_r = 35; normal_r = 65; middle_r = 90; big_r = 97; break;
+        case 4: cost = 1000000; trash_r = 30; normal_r = 63; middle_r = 89; big_r = 97; break;
+        case 5: cost = 2000000; trash_r = 30; normal_r = 60; middle_r = 88; big_r = 97; break;
+        case 6: cost = 4000000; trash_r = 25; normal_r = 55; middle_r = 85; big_r = 96; break;
+        case 7: cost = 6000000; trash_r = 23; normal_r = 53; middle_r = 83; big_r = 94; break;
+        case 8: cost = 8000000; trash_r = 20; normal_r = 47; middle_r = 80; big_r = 92; break;
+        case 9: cost = 10000000; trash_r = 17; normal_r = 42; middle_r = 75; big_r = 90; break;
+        case 10: trash_r = 15; normal_r = 37; middle_r = 70; big_r = 88; break;
+        default: break;
+        }
         print_chance(88, 9);
 
         while (1) {
@@ -589,7 +605,10 @@ int main() {
                         system("cls");
                         count++;
                         random = rand() % 100;
-                        print_rod(47, 6);
+                        if (level < 10)
+                            print_rod(47, 6);
+                        else
+                            print_newrod(28, 7);
                         for (int i = 0; i < 4; i++) {
                             gotoxy(55, 23);
                             printf("낚시중%.*s", i, "...");
@@ -671,13 +690,17 @@ int main() {
                         x = 13; // +11
                         y = 9;
                         gotoxy(x, y);
+                        setcolor(14);
                         printf("^");
+                        setcolor(15);
 
                         while (1) {
                             gotoxy(2, 1);
                             printf("인벤토리");
-                            gotoxy(102, 1);
+                            gotoxy(103, 1);
                             printf("잔액: %9d원", money);
+                            gotoxy(79, 28);
+                            printf("메인메뉴로 가려면 BackSpace를 눌러주세요.");
 
                             print_store();
 
@@ -794,7 +817,9 @@ int main() {
                                             x = 13;
                                         }
                                         gotoxy(x, y);
+                                        setcolor(14);
                                         printf("^");
+                                        setcolor(15);
                                         break;
 
                                     case LEFT:
@@ -824,7 +849,9 @@ int main() {
                                             break;
                                         }
                                         gotoxy(x, y);
-                                        printf("^"); // 새로운 위치 표시
+                                        setcolor(14);
+                                        printf("^");
+                                        setcolor(15); // 새로운 위치 표시
                                         break;
 
                                     case UP:
@@ -833,7 +860,9 @@ int main() {
                                             printf("  ");
                                             y -= 8;
                                             gotoxy(x, y);
+                                            setcolor(14);
                                             printf("^");
+                                            setcolor(15);
                                         }
                                         else if (y == 9) {
                                             gotoxy(x, y);
@@ -845,7 +874,9 @@ int main() {
                                                 y = 25;
                                             }
                                             gotoxy(x, y);
+                                            setcolor(14);
                                             printf("^");
+                                            setcolor(15);
                                         }
                                         break;
 
@@ -869,7 +900,9 @@ int main() {
                                         }
 
                                         gotoxy(x, y);
+                                        setcolor(14);
                                         printf("^");
+                                        setcolor(15);
 
                                     }
                                 }
@@ -882,71 +915,117 @@ int main() {
                     else if (x == 71) {
                         system("cls");
                         while (1) {
-                            gotoxy(102, 1);
-                            printf("잔액: %9d원", money);
+                            if (level < 10) {
+                                gotoxy(2, 1);
+                                printf("장비 강화");
+                                gotoxy(103, 1);
+                                printf("잔액: %9d원", money);
+                                gotoxy(79, 28);
+                                printf("메인메뉴로 가려면 BackSpace를 눌러주세요.");
 
-                            print_rod(8, 8);
+                                print_rod(8, 8);
 
-                            gotoxy(65, 9);
-                            printf("현재 강화 : %d강", level);
+                                gotoxy(65, 9);
+                                printf("현재 강화 : %d강", level);
 
-                            print_chance(39, 13);
+                                switch (level) {
+                                case 0: cost = 100000; trash_r = 40; normal_r = 70; middle_r = 90; big_r = 97; break;
+                                case 1: cost = 150000; trash_r = 37; normal_r = 70; middle_r = 90; big_r = 97; break;
+                                case 2: cost = 250000; trash_r = 35; normal_r = 68; middle_r = 90; big_r = 97; break;
+                                case 3: cost = 500000; trash_r = 35; normal_r = 65; middle_r = 90; big_r = 97; break;
+                                case 4: cost = 1000000; trash_r = 30; normal_r = 63; middle_r = 89; big_r = 97; break;
+                                case 5: cost = 2000000; trash_r = 30; normal_r = 60; middle_r = 88; big_r = 97; break;
+                                case 6: cost = 4000000; trash_r = 25; normal_r = 55; middle_r = 85; big_r = 96; break;
+                                case 7: cost = 6000000; trash_r = 23; normal_r = 53; middle_r = 83; big_r = 94; break;
+                                case 8: cost = 8000000; trash_r = 20; normal_r = 47; middle_r = 80; big_r = 92; break;
+                                case 9: cost = 10000000; trash_r = 17; normal_r = 42; middle_r = 75; big_r = 90; break;
+                                case 10: trash_r = 15; normal_r = 37; middle_r = 70; big_r = 88; break;
+                                default: break;
+                                }
+                                print_chance(39, 13);
 
-                            gotoxy(73, 16);
-                            printf("----->");
-                            gotoxy(72, 21);
-                            setcolor(14);
-                            printf("강화하기");
-                            setcolor(15);
+                                gotoxy(73, 16);
+                                printf("----->");
+                                gotoxy(72, 21);
+                                setcolor(14);
+                                printf("강화하기");
+                                setcolor(15);
 
-                            switch (level) {
-                            case 0:  cost = 100000;  trash_r = 37; normal_r = 70; middle_r = 90; big_r = 97; break;
-                            case 1:  cost = 150000;  trash_r = 35; normal_r = 68; middle_r = 90; big_r = 97; break;
-                            case 2:  cost = 250000;  trash_r = 35; normal_r = 65; middle_r = 90; big_r = 97; break;
-                            case 3:  cost = 500000;  trash_r = 30; normal_r = 63; middle_r = 89; big_r = 97; break;
-                            case 4:  cost = 1000000; trash_r = 30; normal_r = 60; middle_r = 88; big_r = 97; break;
-                            case 5:  cost = 2000000; trash_r = 25; normal_r = 55; middle_r = 85; big_r = 96; break;
-                            case 6:  cost = 4000000; trash_r = 23; normal_r = 53; middle_r = 83; big_r = 94; break;
-                            case 7:  cost = 6000000; trash_r = 20; normal_r = 47; middle_r = 80; big_r = 92; break;
-                            case 8:  cost = 8000000; trash_r = 17; normal_r = 42; middle_r = 75; big_r = 90; break;
-                            case 9:  cost = 10000000; trash_r = 15; normal_r = 37; middle_r = 70; big_r = 88; break;
-                            case 10:   break;
-                            default: break;
-                            }
-                            gotoxy(65, 10);
-                            printf("강화 비용 : %d원", cost);
+                                gotoxy(65, 10);
+                                printf("강화 비용 : %d원", cost);
 
-                            print_chance(80, 13);
+                                switch (level + 1) {
+                                case 0: cost = 100000; trash_r = 40; normal_r = 70; middle_r = 90; big_r = 97; break;
+                                case 1: cost = 150000; trash_r = 37; normal_r = 70; middle_r = 90; big_r = 97; break;
+                                case 2: cost = 250000; trash_r = 35; normal_r = 68; middle_r = 90; big_r = 97; break;
+                                case 3: cost = 500000; trash_r = 35; normal_r = 65; middle_r = 90; big_r = 97; break;
+                                case 4: cost = 1000000; trash_r = 30; normal_r = 63; middle_r = 89; big_r = 97; break;
+                                case 5: cost = 2000000; trash_r = 30; normal_r = 60; middle_r = 88; big_r = 97; break;
+                                case 6: cost = 4000000; trash_r = 25; normal_r = 55; middle_r = 85; big_r = 96; break;
+                                case 7: cost = 6000000; trash_r = 23; normal_r = 53; middle_r = 83; big_r = 94; break;
+                                case 8: cost = 8000000; trash_r = 20; normal_r = 47; middle_r = 80; big_r = 92; break;
+                                case 9: cost = 10000000; trash_r = 17; normal_r = 42; middle_r = 75; big_r = 90; break;
+                                case 10: trash_r = 15; normal_r = 37; middle_r = 70; big_r = 88; break;
+                                default: break;
+                                }
+                                print_chance(80, 13);
 
-                            while (1) {
-                                if (_kbhit()) {
-                                    control = _getch();
-                                    if (control == ENTER) {
-                                        if (money >= cost) {
-                                            money -= cost;
-                                            level++;
+                                while (1) {
+                                    if (_kbhit()) {
+                                        control = _getch();
+                                        if (control == ENTER) {
+                                            if (money >= cost) {
+                                                money -= cost;
+                                                level++;
+                                                break;
+                                            }
+                                            else {
+                                                gotoxy(72, 21);
+                                                printf("                        ");
+                                                gotoxy(69, 21);
+                                                printf("돈이 부족합니다.");
+                                                Sleep(2500);
+                                                gotoxy(69, 21);
+                                                printf("                        ");
+                                                break;
+                                            }
+                                        }
+                                        else if (control == BACKSPACE) {
+                                            system("cls");
                                             break;
                                         }
-                                        else {
-                                            gotoxy(72, 21);
-                                            printf("                        ");
-                                            gotoxy(69, 21);
-                                            printf("돈이 부족합니다.");
-                                            Sleep(2500);
-                                            gotoxy(69, 21);
-                                            printf("                        ");
-                                            break;
-                                        }
-                                    }
-                                    else if (control == BACKSPACE) {
-                                        system("cls");
-                                        break;
                                     }
                                 }
+                                if (control == BACKSPACE)
+                                    break;
                             }
-                            if (control == BACKSPACE) {
-                                break;
+                            else {
+                                if (cls_flag == 0) {
+                                    system("cls");
+                                    cls_flag = 1;
+                                }
+                                print_newrod(10, 9);
+                                gotoxy(84, 10);
+                                setcolor(14);
+                                printf("강태공이 사용하던 낚시대");
+                                setcolor(15);
+                                print_chance(80, 13);
+                                gotoxy(79, 28);
+                                printf("메인메뉴로 가려면 BackSpace를 눌러주세요.");
+
+                                while (1) {
+                                    if (_kbhit()) {
+                                        control = _getch();
+                                        if (control == BACKSPACE) {
+                                            system("cls");
+                                            break;
+                                        }
+                                    }
+                                }
+                                if (control == BACKSPACE)
+                                    break;
                             }
+                             
                         }
                         int x = 71;
                         setcolor(15);
@@ -960,7 +1039,7 @@ int main() {
                     else if (x == 91) {
                         while (1) {
                             system("cls");
-                            gotoxy(102, 1);
+                            gotoxy(103, 1);
                             printf("잔액: %9d원", money);
                             print_moneybag();
 
@@ -1022,9 +1101,11 @@ int main() {
                         gotoxy(69, 23);
                         printf("뒷면");
 
-                        gotoxy(49, 24);
-                        printf("^");
                         x = 49;
+                        gotoxy(x, 24);
+                        setcolor(14);
+                        printf("^");
+                        setcolor(15);
 
 
                         while (1) {
@@ -1044,7 +1125,9 @@ int main() {
                                         x = (x == 49) ? 70 : 49;
 
                                         gotoxy(x, 24);
+                                        setcolor(14);
                                         printf("^");
+                                        setcolor(15);
 
                                         break;
 
@@ -1055,7 +1138,9 @@ int main() {
                                         x = (x == 70) ? 49 : 70;
 
                                         gotoxy(x, 24);
+                                        setcolor(14);
                                         printf("^");
+                                        setcolor(15);
 
                                         break;
                                     }
@@ -1092,7 +1177,9 @@ int main() {
                             printf("  ");
                             x = 49;
                             gotoxy(x, 27);
+                            setcolor(14);
                             printf("^");
+                            setcolor(15);
 
                             print_sell();
                         }
@@ -1101,7 +1188,9 @@ int main() {
                             printf("  ");
                             x = 71;
                             gotoxy(x, 27);
+                            setcolor(14);
                             printf("^");
+                            setcolor(15);
 
                             print_buy();
                         }
@@ -1110,7 +1199,9 @@ int main() {
                             printf("  ");
                             x = 91;
                             gotoxy(x, 27);
+                            setcolor(14);
                             printf("^");
+                            setcolor(15);
 
                             print_betting();
                         }
@@ -1119,7 +1210,9 @@ int main() {
                             printf("  ");
                             x = 27;
                             gotoxy(x, 27);
+                            setcolor(14);
                             printf("^");
+                            setcolor(15);
 
                             print_chance(88, 9);
                         }
@@ -1131,7 +1224,9 @@ int main() {
                             printf("  ");
                             x = 27;
                             gotoxy(x, 27);
+                            setcolor(14);
                             printf("^");
+                            setcolor(15);
 
                             print_chance(88, 9);
                         }
@@ -1140,7 +1235,9 @@ int main() {
                             printf("  ");
                             x = 49;
                             gotoxy(x, 27);
+                            setcolor(14);
                             printf("^");
+                            setcolor(15);
 
                             for (int i = 9; i <= 15; i++) {
                                 gotoxy(88, i);
@@ -1153,7 +1250,9 @@ int main() {
                             printf("  ");
                             x = 71;
                             gotoxy(x, 27);
+                            setcolor(14);
                             printf("^");
+                            setcolor(15);
 
                             for (int i = 9; i <= 15; i++) {
                                 gotoxy(88, i);
@@ -1166,7 +1265,9 @@ int main() {
                             printf("  ");
                             x = 91;
                             gotoxy(x, 27);
+                            setcolor(14);
                             printf("^");
+                            setcolor(15);
 
                             for (int i = 9; i <= 15; i++) {
                                 gotoxy(88, i);
@@ -1317,7 +1418,7 @@ void print_say() {
 void print_rod(int x, int y) {
     gotoxy(x, y);
     for (int i = 0; i < 16; i++) {
-        for (int j = 0; j < 32; j++) {
+        for (int j = 0; j < 16; j++) {
             if (rod[i][j] == 0)
                 printf("  ");
             else if (rod[i][j] == 1) {
@@ -1351,26 +1452,38 @@ void print_newrod(int x, int y) {
     gotoxy(x, y);
     for (int i = 0; i < 16; i++) {
         for (int j = 0; j < 32; j++) {
-            if (rod[i][j] == 0)
+            if (newrod[i][j] == 0)
                 printf("  ");
-            else if (rod[i][j] == 1) {
-                SET_COLOR(FOREGROUND, 181, 180, 181);
+            else if (newrod[i][j] == 1) {
+                SET_COLOR(FOREGROUND, 49, 49, 49);
                 printf("▒▒");
             }
-            else if (rod[i][j] == 2) {
+            else if (newrod[i][j] == 2) {
                 SET_COLOR(FOREGROUND, 108, 147, 66);
                 printf("▒▒");
             }
-            else if (rod[i][j] == 3) {
-                SET_COLOR(FOREGROUND, 73, 54, 21);
+            else if (newrod[i][j] == 3) {
+                SET_COLOR(FOREGROUND, 69, 99, 37);
                 printf("▒▒");
             }
-            else if (rod[i][j] == 4) {
-                SET_COLOR(FOREGROUND, 137, 103, 39);
+            else if (newrod[i][j] == 4) {
+                SET_COLOR(FOREGROUND, 135, 27, 27);
                 printf("▒▒");
             }
-            else if (rod[i][j] == 5) {
-                SET_COLOR(FOREGROUND, 40, 30, 11);
+            else if (newrod[i][j] == 5) {
+                SET_COLOR(FOREGROUND, 178, 40, 40);
+                printf("▒▒");
+            }
+            else if (newrod[i][j] == 6) {
+                SET_COLOR(FOREGROUND, 148, 143, 143);
+                printf("▒▒");
+            }
+            else if (newrod[i][j] == 7) {
+                SET_COLOR(FOREGROUND, 99, 113, 142);
+                printf("▒▒");
+            }
+            else if (newrod[i][j] == 8) {
+                SET_COLOR(FOREGROUND, 68, 79, 97);
                 printf("▒▒");
             }
         }
@@ -1942,7 +2055,7 @@ void print_f6() {
 }
 
 void print_f7() {
-    y = 0;
+    y = 1;
     gotoxy(34, y);
     for (int i = 0; i < 23; i++) {
         for (int j = 0; j < 30; j++) {
@@ -1985,7 +2098,7 @@ void print_f7() {
         gotoxy(34, y);
     }
     setcolor(15);
-    gotoxy(54, 23);
+    gotoxy(54, 26);
     printf("고래를 낚았다!!!");
 }
 
@@ -2207,7 +2320,7 @@ void print_sell() {
     printf("                                \n");
     gotoxy(88, 10);
     printf("┌──────────────────────────────┐\n");
-    gotoxy(88, 11);
+    gotoxy(88, 11); 
     printf("│                              │\n");
     gotoxy(88, 12);
     printf("│   아이템 판매 상점으로 가기  │\n");
