@@ -53,6 +53,10 @@ void print_buy();
 void print_sell();
 void print_betting();
 void print_chance(int x, int y);
+void print_cancel();
+void print_end();
+void print_badending();
+void print_gameover();
 
 int npc[16][16] = { // 김낚푸
         0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,
@@ -420,7 +424,7 @@ int f_7[23][30] = {
     }; 
 
 char input[100];
-int x = 0, y = 0; level = 0, cost = 0, money = 100000000;;
+int x = 0, y = 0; level = 0, cost = 0, money = 50000;
 int trash_r = 40, normal_r = 70, middle_r = 90, big_r = 97, max = 100;
 int can = 0, shoes = 0, seaweed = 0, daegu = 0, yeonuh = 0, nimo = 0, bokuh = 0, inguh = 0, dolphin = 0, whale = 0;
 
@@ -432,7 +436,7 @@ int main() {
 
     int length = 0, random = 0, control = 0;
     int answer = 0, count = 0, cls_flag = 0;
-     long long betting = 0;
+    long long betting = 0;
     /*쓰레기40 일반30 중간20 대7 특대2*/
 
     srand(time(NULL));
@@ -506,16 +510,19 @@ int main() {
     while (1) {
         system("cls");
 
-        print_npc();
-        print_say();
-
         if (money >= 50000000) {
+            Sleep(2000);
 
+            print_npc();
+            print_say();
+
+            gotoxy(39, 7);
+            printf("선택의 시간이군..");
             gotoxy(0, 23);
             printf("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
             Sleep(1500);
             gotoxy(0, 26);
-            char* talk = "김낚푸 : 드디어 5000만원을 다 모았다!!\n\t 무슨 집을 사야 잘 샀다고 소문이 날까??";
+            char* talk = "김낚푸 : 드디어 5000만원을 다 모았다!!\n\t 무슨 집을 사야 잘 샀다고 소문이 날까?";
             length = strlen(talk);
             for (int i = 0; i < length; i++) {
                 printf("%c", talk[i]);
@@ -537,11 +544,13 @@ int main() {
                     }
                 }
             }
+
             setcolor(15);
 
             while (1) {
                 print_npc();
                 print_say();
+                print_cancel();
 
                 gotoxy(0, 23);
                 printf("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
@@ -567,36 +576,210 @@ int main() {
                             case RIGHT:
                                 gotoxy(x, 27);
                                 printf("  ");
-
                                 x = (x == 43) ? 77 : 43;
-
                                 gotoxy(x, 27);
                                 setcolor(14);
                                 printf("^");
                                 setcolor(15);
-
                                 break;
 
                             case LEFT:
                                 gotoxy(x, 27);
                                 printf("  ");
-
                                 x = (x == 77) ? 43 : 77;
-
                                 gotoxy(x, 27);
                                 setcolor(14);
                                 printf("^");
                                 setcolor(15);
+                                break;
+                            }
+                        }
+                        else if (control == ENTER) {
+                            gotoxy(43, 27);
+                            printf(" ");
+                            gotoxy(77, 27);
+                            printf(" ");
+                            gotoxy(79, 1);
 
+                            if (x == 43) {
+                                system("cls");
+                                Sleep(2000);
+
+                                setcolor(8);
+                                for (int i = 0; i < 4; i++) {
+                                    gotoxy(0, 8);
+                                    printf("통화 연결음%.*s", i, "...");
+                                    Sleep(750);
+                                }
+                                Sleep(2000);
+                                setcolor(15);
+                                printf("\n\n여보세요?\n\n");
+                                Sleep(2000);
+                                setcolor(8);
+                                printf("안녕하세요. @@부동산 입니다.\n\n");
+                                Sleep(2000);
+                                setcolor(15);
+                                printf("네, 무슨 일이세요?\n\n");
+                                Sleep(2000);
+                                setcolor(8);
+                                printf("드릴 말씀이 있어 전화 드렸습니다.\n\n");
+                                Sleep(2000);
+                                setcolor(15);
+                                for (int i = 0; i < 4; i++) {
+                                    gotoxy(0, 18);
+                                    printf("%.*s", i, "...");
+                                    Sleep(750);
+                                }
+                                Sleep(2000);
+                                printf("\n\n네?");
+                                Sleep(2000);
+                                printf(" 전세사기요?\n\n");
+                                Sleep(3000);
+                                system("cls");
+                                Sleep(1500);
+                                print_end();
+                                gotoxy(0, 26);
+                                Sleep(5000);
+                                break;
+                            }
+                            else if (x == 77) {
+                                while (1) {
+                                    system("cls");
+                                    print_moneybag();
+
+                                    while (1) {
+                                        gotoxy(57, 26);
+                                        setcolor(14);
+                                        printf("올인하기");
+                                        setcolor(15);
+
+                                        if (_kbhit()) {
+                                            control = _getch();
+                                            if (control == ENTER) {
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    system("cls");
+                                    Sleep(2500);
+                                    break;
+                                }
+                                system("cls");
+
+                                print_coin();
+
+                                gotoxy(95, 1);
+                                printf("인생이 걸린 마지막 베팅!!");
+
+                                gotoxy(48, 23);
+                                printf("앞면");
+                                gotoxy(69, 23);
+                                printf("뒷면");
+
+                                x = 49;
+                                gotoxy(x, 24);
+                                setcolor(14);
+                                printf("^");
+                                setcolor(15);
+
+
+                                while (1) {
+                                    if (_kbhit()) {
+                                        control = _getch();
+                                        if (control == BACKSPACE) {
+                                            system("cls");
+                                            break;
+                                        }
+                                        else if (control == ARROW) {
+                                            control = _getch();
+                                            switch (control) {
+                                            case RIGHT:
+                                                gotoxy(x, 24);
+                                                printf("  ");
+
+                                                x = (x == 49) ? 70 : 49;
+
+                                                gotoxy(x, 24);
+                                                setcolor(14);
+                                                printf("^");
+                                                setcolor(15);
+
+                                                break;
+
+                                            case LEFT:
+                                                gotoxy(x, 24);
+                                                printf("  ");
+
+                                                x = (x == 70) ? 49 : 70;
+
+                                                gotoxy(x, 24);
+                                                setcolor(14);
+                                                printf("^");
+                                                setcolor(15);
+
+                                                break;
+                                            }
+                                        }
+                                        else if (control == ENTER) {
+                                            system("cls");
+                                            random = rand() % 2;
+
+                                            answer = (x == 49) ? 1 : 0;
+
+                                            if (random == answer) {
+                                                print_clap();
+                                                system("cls");
+                                                Sleep(2000);
+
+                                                gotoxy(0, 10);
+                                                setcolor(15);
+                                                printf("그렇게 낚푸는\n\n");
+                                                Sleep(2000);
+                                                printf("따뜻한 집에서\n\n");
+                                                Sleep(2000);
+                                                printf("물고기들과 함께\n\n");
+                                                Sleep(2000);
+                                                for (int i = 0; i < 4; i++) {
+                                                    gotoxy(0, 16);
+                                                    printf("행복한 인생을 삶았답니다%.*s", i, "...");
+                                                    Sleep(750);
+                                                }
+                                                Sleep(2000);
+                                                system("cls");
+
+                                                print_end();
+                                                gotoxy(0, 26);
+                                                Sleep(5000);
+                                            }
+                                            else {
+                                                print_badending();
+                                                system("cls");
+                                                Sleep(1500);
+                                                print_gameover();
+                                                setcolor(15);
+                                                gotoxy(0, 26);
+                                                Sleep(5000);
+                                            }
+                                            break;
+                                        }
+                                    }
+                                }
                                 break;
                             }
                         }
                     }
                 }
+                break;
             }
+            break;
         }
 
-        gotoxy(38, 7);
+        print_npc();
+        print_say();
+
+        gotoxy(39, 6);
+        printf("50000만원 모아서");
+        gotoxy(38, 8);
         printf("내집마련 하고만다.");
 
         gotoxy(103, 1);
@@ -1319,6 +1502,7 @@ int main() {
         }
     }
 
+    //gotoxy()
     setcolor(15);
     return 0;
 } // 설명창 추가 필요
@@ -2351,6 +2535,23 @@ void print_buy() {
     printf("                                \n");
 }
 
+void print_cancel() {
+    gotoxy(88, 9);
+    printf("                                \n");
+    gotoxy(88, 10);
+    printf("┌──────────────────────────────┐\n");
+    gotoxy(88, 11);
+    printf("│                              │\n");
+    gotoxy(88, 12);
+    printf("│  선택 후 취소가 불가합니다.  │\n");
+    gotoxy(88, 13);
+    printf("│                              │\n");
+    gotoxy(88, 14);
+    printf("└──────────────────────────────┘\n");
+    gotoxy(88, 15);
+    printf("                                \n");
+}
+
 void print_sell() {
     gotoxy(88, 9);
     printf("                                \n");
@@ -2366,4 +2567,98 @@ void print_sell() {
     printf("└──────────────────────────────┘\n");
     gotoxy(88, 15);
     printf("                                \n");
+}
+
+void print_end() {
+    gotoxy(31, 11);
+    printf("          88888888888  888b,      88  888888ba,             \n");
+    gotoxy(31, 12);
+    printf("          88           88'8a,     88  88     '\"8b          \n");
+    gotoxy(31, 13);
+    printf("          88           88 '8a,    88  88       '8b          \n");
+    gotoxy(31, 14);
+    printf("          88888888888  88  '8a,   88  88        88          \n");
+    gotoxy(31, 15);
+    printf("88888888  88           88   '8a,  88  88        88  88888888\n");
+    gotoxy(31, 16);
+    printf("          88           88    '8a, 88  88       ,8Y          \n");
+    gotoxy(31, 17);
+    printf("          88           88     '8a,88  88     ,a8Y           \n");
+    gotoxy(31, 18);
+    printf("          88888888888  88      'q888  8888888P\"            \n");
+}
+
+void print_badending() {
+    y = 3;
+    gotoxy(42, y);
+    for (int i = 0; i < 18; i++) {
+        for (int j = 0; j < 18; j++) {
+            if (bad[i][j] == 0)
+                printf("  ");
+            else if (bad[i][j] == 1) {
+                SET_COLOR(FOREGROUND, 66, 35, 17);
+                printf("▒▒");
+            }
+            else if (bad[i][j] == 2) {
+                SET_COLOR(FOREGROUND, 213, 153, 20);
+                printf("▒▒");
+            }
+            else if (bad[i][j] == 3) {
+                SET_COLOR(FOREGROUND, 254, 211, 8);
+                printf("▒▒");
+            }
+            else if (bad[i][j] == 4) {
+                SET_COLOR(FOREGROUND, 65, 143, 246);
+                printf("▒▒");
+            }
+            else if (bad[i][j] == 5) {
+                SET_COLOR(FOREGROUND, 255, 255, 255);
+                printf("▒▒");
+            }
+        }
+        y += 1;
+        gotoxy(42, y);
+    }
+    gotoxy(42, 23);
+    setcolor(15);
+    printf("아깝네요.. 다음 인생을 노려보세요!!");
+    Sleep(2500);
+    system("cls");
+}
+
+void print_gameover() {
+    setcolor(12);
+    gotoxy(25, 6);
+    printf("   ,ad8888ba,            ,88,          ,888,       ,888,   88888888888      \n");
+    gotoxy(25, 7);
+    printf(" d8\"'      '\"8b         ,8888,        88  '8b     d8' '88  88               \n");
+    gotoxy(25, 8);
+    printf("d8'                    ,8p  q8,       88   '8b   d8'   88  88               \n");
+    gotoxy(25, 9);
+    printf("88                    ,8P    q8,      88    '8b d8'    88  88888888888      \n");
+    gotoxy(25, 10);
+    printf("88         88888     ,8888888888,     88     'd8b'     88  88               \n");
+    gotoxy(25, 11);
+    printf("Y8.           88    ,8p        q8,    88               88  88               \n");
+    gotoxy(25, 12);
+    printf(" Y8a.       .a88   ,8p          q8,   88               88  88               \n");
+    gotoxy(25, 13);
+    printf("   '\"Y88888P\"     ,8p            q8,  88               88  88888888888      \n");
+    gotoxy(25, 15);
+    printf("     ,ad8888ba,     8b,           ,d8  888888888888  88888888ba,   \n");
+    gotoxy(25, 16);
+    printf("   d8\"'      '\"8b   '8b,         ,d8'  88            88       '8b  \n");
+    gotoxy(25, 17);
+    printf("  d8'          '8b   '8b,       ,d8'   88            88        88  \n");
+    gotoxy(25, 18);
+    printf("  88            88    '8b,     ,d8'    888888888888  88       '8P  \n");
+    gotoxy(25, 19);
+    printf("  88            88     '8b,   ,d8'     88            888888ad8P'   \n");
+    gotoxy(25, 20);
+    printf("  Y8.          .8Y      '8b, ,d8'      88            88    'qb,    \n");
+    gotoxy(25, 21);
+    printf("   Y8a.      .a8Y        '8b.d8'       88            88      'qb,  \n");
+    gotoxy(25, 22);
+    printf("     '\"Y8888P\"            '888'        888888888888  88       'qba \n");
+    Sleep(2500);
 }
