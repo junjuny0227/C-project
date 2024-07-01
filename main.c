@@ -424,7 +424,7 @@ int f_7[23][30] = {
     }; 
 
 char input[100];
-int x = 0, y = 0; level = 0, cost = 0, money = 50000;
+int x = 0, y = 0; level = 0, cost = 0, money = 45000000;
 int trash_r = 40, normal_r = 70, middle_r = 90, big_r = 97, max = 100;
 int can = 0, shoes = 0, seaweed = 0, daegu = 0, yeonuh = 0, nimo = 0, bokuh = 0, inguh = 0, dolphin = 0, whale = 0;
 
@@ -437,7 +437,6 @@ int main() {
     int length = 0, random = 0, control = 0;
     int answer = 0, count = 0, cls_flag = 0;
     long long betting = 0;
-    /*쓰레기40 일반30 중간20 대7 특대2*/
 
     srand(time(NULL));
 
