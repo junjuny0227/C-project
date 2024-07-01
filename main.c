@@ -476,7 +476,7 @@ int main() {
     Sleep(1500);
 
     gotoxy(0, 26);
-    const char* talk = "김낚푸 : 나는 제2의 강태공이 될 김낚푸.\n\t낚시로 돈을 벌어 내집마련을 할 사나이다!";
+    const char* talk = "김낚푸 : 나는 제2의 강태공이 될 김낚푸.\n\t 낚시로 돈을 벌어 내집마련을 할 사나이다!";
 
     length = strlen(talk);
     for (int i = 0; i < length; i++) {
@@ -508,49 +508,85 @@ int main() {
 
         print_npc();
         print_say();
-        
-        /*if (money >= 50000000) {
+
+        if (money >= 50000000) {
+
+            gotoxy(0, 23);
+            printf("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
+            Sleep(1500);
+            gotoxy(0, 26);
+            char* talk = "김낚푸 : 드디어 5000만원을 다 모았다!!\n\t 무슨 집을 사야 잘 샀다고 소문이 날까??";
+            length = strlen(talk);
+            for (int i = 0; i < length; i++) {
+                printf("%c", talk[i]);
+                Sleep(50);
+            }
+            Sleep(1000);
+            setcolor(14);
+            gotoxy(52, 23);
+            printf(" Press SPACE ");
+            setcolor(15);
+
             while (1) {
-                gotoxy(38, 7);
-                printf("전세? 아니면 자가?");
+                if (_kbhit()) {
+                    control = _getch();
+                    if (control == SPACE) {
+                        system("cls");
+                        Sleep(2000);
+                        break;
+                    }
+                }
+            }
+            setcolor(15);
+
+            while (1) {
+                print_npc();
+                print_say();
+
                 gotoxy(0, 23);
                 printf("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
-                gotoxy(40, 26);
+
+                gotoxy(38, 7);
+                printf("전세? 아니면 자가?");
+                gotoxy(36, 26);
                 printf("전세방 계약하기");
                 gotoxy(67, 26);
-                printf("자가에 도전하기");
-                gotoxy(47, 27);
+                printf("자가(도박)에 도전하기");
+                x = 43;
+                gotoxy(x, 27);
+                setcolor(14);
                 printf("^");
+                setcolor(15);
 
                 while (1) {
                     if (_kbhit()) {
                         control = _getch();
-                        if (control == BACKSPACE) {
-                            system("cls");
-                            break;
-                        }
-                        else if (control == ARROW) {
+                        if (control == ARROW) {
                             control = _getch();
                             switch (control) {
                             case RIGHT:
-                                gotoxy(x, 24);
+                                gotoxy(x, 27);
                                 printf("  ");
 
-                                x = (x == 49) ? 70 : 49;
+                                x = (x == 43) ? 77 : 43;
 
-                                gotoxy(x, 24);
+                                gotoxy(x, 27);
+                                setcolor(14);
                                 printf("^");
+                                setcolor(15);
 
                                 break;
 
                             case LEFT:
-                                gotoxy(x, 24);
+                                gotoxy(x, 27);
                                 printf("  ");
 
-                                x = (x == 70) ? 49 : 70;
+                                x = (x == 77) ? 43 : 77;
 
-                                gotoxy(x, 24);
+                                gotoxy(x, 27);
+                                setcolor(14);
                                 printf("^");
+                                setcolor(15);
 
                                 break;
                             }
@@ -558,7 +594,7 @@ int main() {
                     }
                 }
             }
-        }*/
+        }
 
         gotoxy(38, 7);
         printf("내집마련 하고만다.");
