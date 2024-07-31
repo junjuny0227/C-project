@@ -896,6 +896,7 @@ int main() {
                         }
                         else if (random >= big_r && random < max) { // 97보다 크거나 같다 and 100보다 작다
                             system("cls");
+                            whale++;
                             print_f7();
                         }
                         x = 27;
